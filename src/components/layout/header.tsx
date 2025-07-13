@@ -65,7 +65,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left">
               <SheetHeader>
-                <SheetTitle className="sr-only">Menu</SheetTitle>
+                <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">

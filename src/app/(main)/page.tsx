@@ -1,10 +1,15 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Megaphone, Code, PenTool, Camera, Star } from "lucide-react";
 
+import { generateImage, GenerateImageInput } from "@/ai/flows/generate-image-flow";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const services = [
   {
@@ -40,23 +45,74 @@ const testimonials = [
     name: "Alex Johnson",
     title: "CEO, Innovate Inc.",
     avatar: "https://placehold.co/100x100.png",
+    hint: "man portrait",
     text: "Nexx Media transformed our online presence. Their team is professional, creative, and delivered beyond our expectations. Highly recommended!",
   },
   {
     name: "Samantha Lee",
     title: "Marketing Director, Future Gadgets",
     avatar: "https://placehold.co/100x100.png",
+    hint: "woman portrait smiling",
     text: "Working with Nexx Media was a game-changer. Their insights into digital marketing helped us double our engagement in just one quarter.",
   },
   {
     name: "David Chen",
     title: "Founder, Startup Hub",
     avatar: "https://placehold.co/100x100.png",
+    hint: "man portrait glasses",
     text: "The website they developed is not only beautiful but also incredibly fast and user-friendly. Our conversion rates have soared.",
   },
 ];
 
+const useAiImage = (prompt: string, cacheKey?: string) => {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const key = `ai-image-${cacheKey || prompt}`;
+    const cachedImage = localStorage.getItem(key);
+
+    if (cachedImage) {
+      setImageUrl(cachedImage);
+      return;
+    }
+
+    async function fetchImage() {
+      try {
+        const { imageUrl: newImageUrl } = await generateImage({ prompt });
+        setImageUrl(newImageUrl);
+        localStorage.setItem(key, newImageUrl);
+      } catch (error) {
+        console.error("AI image generation failed:", error);
+      }
+    }
+
+    fetchImage();
+  }, [prompt, cacheKey]);
+
+  return imageUrl;
+};
+
+
+const AiImage = ({ prompt, alt, className, width, height, isAvatar, cacheKey }: { prompt: string; alt: string; className: string; width: number; height: number; isAvatar?: boolean; cacheKey?: string }) => {
+  const imageUrl = useAiImage(prompt, cacheKey);
+
+  if (!imageUrl) {
+    if (isAvatar) {
+      return <Skeleton className="h-full w-full rounded-full" />;
+    }
+    return <Skeleton className={className} />;
+  }
+
+  if (isAvatar) {
+    return <AvatarImage src={imageUrl} alt={alt} />;
+  }
+
+  return <Image src={imageUrl} alt={alt} fill style={{ objectFit: "cover" }} className={className} />;
+};
+
+
 export default function HomePage() {
+
   return (
     <div className="flex flex-col">
       <section className="py-20 md:py-32 bg-card">
@@ -79,7 +135,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="relative h-80 md:h-96 w-full">
-              <Image src="https://placehold.co/800x600.png" alt="Digital Agency Collaboration" fill style={{ objectFit: "cover" }} className="rounded-lg shadow-xl" data-ai-hint="digital agency meeting" />
+              <AiImage prompt="digital agency meeting" alt="Digital Agency Collaboration" className="rounded-lg shadow-xl" width={800} height={600} />
             </div>
           </div>
         </div>
@@ -123,7 +179,7 @@ export default function HomePage() {
             {portfolioHighlights.map((project) => (
               <Card key={project.id} className="overflow-hidden group">
                 <div className="relative h-60 w-full">
-                  <Image src={project.image} alt={project.title} fill style={{ objectFit: 'cover' }} className="group-hover:scale-105 transition-transform duration-500" data-ai-hint={project.hint} />
+                   <AiImage prompt={project.hint} alt={project.title} className="group-hover:scale-105 transition-transform duration-500" width={600} height={400} cacheKey={`portfolio-${project.id}`} />
                 </div>
                 <CardContent className="p-6">
                   <p className="text-sm text-accent font-semibold">{project.category}</p>
@@ -159,7 +215,7 @@ export default function HomePage() {
                 </CardContent>
                 <div className="bg-muted/50 p-6 flex items-center space-x-4">
                    <Avatar>
-                      <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                      <AiImage prompt={testimonial.hint} alt={testimonial.name} className="" width={100} height={100} isAvatar={true} cacheKey={`testimonial-${testimonial.name}`} />
                       <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                   <div>
