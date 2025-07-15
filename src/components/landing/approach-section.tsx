@@ -42,11 +42,11 @@ const ApproachItem = ({ title, description }: { title: string; description: stri
   }, []);
   
   return (
-    <div className="bg-gray-50 rounded-2xl p-6 border-none">
+    <div className="bg-gray-50 rounded-2xl p-8 border-none">
        <div className="flex items-center gap-8 w-full">
-        <div className="flex-shrink-0 bg-white rounded-xl p-4">
+        <div className="flex-shrink-0 bg-white rounded-2xl p-6">
           <Plus
-            className="h-10 w-10 text-gray-900 transition-transform duration-100 ease-linear"
+            className="h-12 w-12 text-gray-900 transition-transform duration-100 ease-linear"
             style={{ transform: `rotate(${rotation}deg)` }}
           />
         </div>
