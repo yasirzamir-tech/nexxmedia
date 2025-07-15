@@ -36,10 +36,10 @@ export default function ApproachSection() {
         <Accordion type="single" collapsible className="w-full space-y-6">
           {approachItems.map((item) => (
             <AccordionItem key={item.value} value={item.value} className="bg-gray-50 rounded-2xl p-4 border-none data-[state=open]:bg-gray-100 transition-colors">
-              <AccordionTrigger className="hover:no-underline p-4 text-left">
+              <AccordionTrigger className="hover:no-underline p-4 text-left group">
                 <div className="flex items-center gap-8 w-full">
-                  <div className="flex-shrink-0 bg-white rounded-xl p-4 transition-transform duration-300 ease-in-out group-data-[state=open]:rotate-45">
-                     <Plus className="h-8 w-8 text-gray-900 transition-transform duration-300 ease-in-out" />
+                  <div className="flex-shrink-0 bg-white rounded-xl p-4">
+                     <Plus className="h-10 w-10 text-gray-900 transition-transform duration-300 ease-in-out group-data-[state=open]:rotate-45" />
                   </div>
                   <h3 className="flex-1 text-2xl font-semibold tracking-tight text-gray-900">{item.title}</h3>
                   <p className="flex-1 text-gray-600 text-base font-normal hidden md:block">
