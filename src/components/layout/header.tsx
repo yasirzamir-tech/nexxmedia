@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, Mountain, X } from "lucide-react"
+import { Menu, Mountain } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -11,24 +11,33 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Our Works" },
-  { href: "/contact", label: "Contact" },
+  { href: "#features", label: "About" },
+  { href: "#testimonials", label: "Services" },
+  { href: "#contact", label: "Contact" },
 ]
 
 export default function Header() {
   const [isSheetOpen, setSheetOpen] = React.useState(false)
+  const [isScrolled, setIsScrolled] = React.useState(false)
   const pathname = usePathname()
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   const NavLink = ({ href, label, className }: { href: string; label: string, className?: string }) => {
-    const isActive = pathname === href
+    // For single page app, active state might not be needed or can be handled with scroll spying
+    const isActive = pathname === href; 
     return (
       <Link
         href={href}
         className={cn(
-          "text-sm font-medium transition-colors hover:text-primary-foreground hover:bg-primary/20 px-3 py-2 rounded-md",
-          isActive ? "text-primary-foreground bg-primary/20" : "text-foreground/70",
+          "text-sm font-medium transition-colors px-3 py-2 rounded-md",
+          isScrolled ? "text-gray-700 hover:text-primary" : "text-white hover:bg-white/10",
           className
         )}
         onClick={() => setSheetOpen(false)}
@@ -39,12 +48,15 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+    <header className={cn(
+      "sticky top-0 z-50 w-full transition-all duration-300",
+      isScrolled ? "bg-white shadow-md" : "bg-transparent"
+    )}>
+      <div className="container flex h-20 items-center">
         <div className="mr-4 flex items-center">
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className={cn("flex items-center space-x-2", isScrolled ? "text-black" : "text-white")}>
             <Mountain className="h-6 w-6" />
-            <span className="font-bold font-headline text-lg">Nexx Media</span>
+            <span className="font-bold text-lg">WixSite</span>
           </Link>
         </div>
         <nav className="hidden items-center space-x-2 lg:flex">
@@ -53,37 +65,36 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button asChild className="hidden lg:flex" variant="outline">
-            <Link href="/book">Book Online</Link>
-          </Button>
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="lg:hidden">
-                <Menu className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className={cn("lg:hidden", isScrolled ? "text-black" : "text-white", "hover:bg-white/20")}>
+                <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
-              <SheetHeader>
-                <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
+               <SheetHeader>
+                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link href="/" className="flex items-center space-x-2">
                     <Mountain className="h-6 w-6" />
-                    <span className="font-bold font-headline text-lg">Nexx Media</span>
+                    <span className="font-bold text-lg">WixSite</span>
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4 py-6">
                   {navLinks.map((link) => (
-                    <NavLink key={link.href} {...link} className="text-lg" />
+                     <Link
+                      key={link.href}
+                      href={link.href}
+                      className="text-lg text-gray-700 hover:text-primary"
+                      onClick={() => setSheetOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
                   ))}
                 </nav>
-                <div className="mt-auto border-t pt-6">
-                  <Button asChild className="w-full" variant="outline" onClick={() => setSheetOpen(false)}>
-                    <Link href="/book">Book Online</Link>
-                  </Button>
-                </div>
               </div>
             </SheetContent>
           </Sheet>

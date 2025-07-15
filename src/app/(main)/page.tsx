@@ -1,233 +1,271 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Megaphone, Code, PenTool, Camera, Star } from "lucide-react";
+import React, { useRef, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from '@/components/ui/card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { HeartHandshake, Lightbulb, TrendingUp } from 'lucide-react';
 
-import { generateImage, GenerateImageInput } from "@/ai/flows/generate-image-flow";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Skeleton } from "@/components/ui/skeleton";
-
-const services = [
+const features = [
   {
-    icon: <Megaphone className="h-8 w-8 text-accent" />,
-    title: "Digital Marketing",
-    description: "Amplify your reach with our data-driven marketing strategies that guarantee results.",
+    icon: <Lightbulb className="w-10 h-10 text-primary" />,
+    title: 'Innovative Ideas',
+    description: 'We bring fresh perspectives to every project, ensuring unique and creative solutions.',
   },
   {
-    icon: <Code className="h-8 w-8 text-accent" />,
-    title: "Web Development",
-    description: "Get a stunning, high-performance website that captivates and converts.",
+    icon: <TrendingUp className="w-10 h-10 text-primary" />,
+    title: 'Growth Focused',
+    description: 'Our strategies are designed to drive growth and deliver measurable results for your business.',
   },
   {
-    icon: <PenTool className="h-8 w-8 text-accent" />,
-    title: "Content Creation",
-    description: "Engage your audience with compelling content that tells your brand's story.",
+    icon: <HeartHandshake className="w-10 h-10 text-primary" />,
+    title: 'Client First',
+    description: 'Your success is our priority. We work closely with you to achieve your goals.',
   },
-  {
-    icon: <Camera className="h-8 w-8 text-accent" />,
-    title: "Video Production",
-    description: "Bring your vision to life with professional video content that leaves an impact.",
-  },
-];
-
-const portfolioHighlights = [
-  { id: 1, title: "Project Alpha", category: "Web Development", image: "https://placehold.co/600x400.png", hint: "modern office" },
-  { id: 2, title: "Project Beta", category: "Digital Marketing", image: "https://placehold.co/600x400.png", hint: "creative collaboration" },
-  { id: 3, title: "Project Gamma", category: "Content Creation", image: "https://placehold.co/600x400.png", hint: "brand strategy" },
 ];
 
 const testimonials = [
   {
-    name: "Alex Johnson",
-    title: "CEO, Innovate Inc.",
-    avatar: "https://placehold.co/100x100.png",
-    hint: "man portrait",
-    text: "Nexx Media transformed our online presence. Their team is professional, creative, and delivered beyond our expectations. Highly recommended!",
+    name: 'Sarah L.',
+    role: 'CEO, Tech Innovators',
+    quote:
+      'Working with this team was a transformative experience. Their dedication and creativity are unmatched.',
+    image: 'https://placehold.co/100x100.png',
+    hint: 'woman portrait',
   },
   {
-    name: "Samantha Lee",
-    title: "Marketing Director, Future Gadgets",
-    avatar: "https://placehold.co/100x100.png",
-    hint: "woman portrait smiling",
-    text: "Working with Nexx Media was a game-changer. Their insights into digital marketing helped us double our engagement in just one quarter.",
+    name: 'Michael B.',
+    role: 'Marketing Director, Future Co.',
+    quote:
+      "The results speak for themselves. Our engagement has skyrocketed since we partnered with them.",
+    image: 'https://placehold.co/100x100.png',
+    hint: 'man smiling',
   },
   {
-    name: "David Chen",
-    title: "Founder, Startup Hub",
-    avatar: "https://placehold.co/100x100.png",
-    hint: "man portrait glasses",
-    text: "The website they developed is not only beautiful but also incredibly fast and user-friendly. Our conversion rates have soared.",
+    name: 'Jessica P.',
+    role: 'Founder, Creative Minds',
+    quote:
+      "I'm blown away by the quality of work and the professionalism of the entire team. Highly recommend!",
+    image: 'https://placehold.co/100x100.png',
+    hint: 'woman glasses',
   },
 ];
 
-const useAiImage = (prompt: string, cacheKey?: string) => {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+const Section = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const key = `ai-image-${cacheKey || prompt}`;
-    const cachedImage = localStorage.getItem(key);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-section');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-    if (cachedImage) {
-      setImageUrl(cachedImage);
-      return;
+    if (ref.current) {
+      observer.observe(ref.current);
     }
 
-    async function fetchImage() {
-      try {
-        const { imageUrl: newImageUrl } = await generateImage({ prompt });
-        setImageUrl(newImageUrl);
-        localStorage.setItem(key, newImageUrl);
-      } catch (error) {
-        console.error("AI image generation failed:", error);
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
       }
-    }
+    };
+  }, []);
 
-    fetchImage();
-  }, [prompt, cacheKey]);
-
-  return imageUrl;
-};
-
-
-const AiImage = ({ prompt, alt, className, width, height, isAvatar, cacheKey }: { prompt: string; alt: string; className: string; width: number; height: number; isAvatar?: boolean; cacheKey?: string }) => {
-  const imageUrl = useAiImage(prompt, cacheKey);
-
-  if (!imageUrl) {
-    if (isAvatar) {
-      return <Skeleton className="h-full w-full rounded-full" />;
-    }
-    return <Skeleton className={className} />;
-  }
-
-  if (isAvatar) {
-    return <AvatarImage src={imageUrl} alt={alt} />;
-  }
-
-  return <Image src={imageUrl} alt={alt} fill style={{ objectFit: "cover" }} className={className} />;
+  return (
+    <section ref={ref} className={`py-20 md:py-28 opacity-0 ${className}`}>
+      <div className="container mx-auto px-4">
+        {children}
+      </div>
+    </section>
+  );
 };
 
 
 export default function HomePage() {
-
   return (
-    <div className="flex flex-col">
-      <section className="py-20 md:py-32 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tighter">
-                Creative Digital Solutions for a <span className="text-primary-foreground" style={{color: 'hsl(var(--accent))'}}>Bold New Era</span>
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                We are a full-service digital agency specializing in pushing boundaries and delivering exceptional results. Let&apos;s build the future, together.
-              </p>
-              <div className="flex space-x-4">
-                <Button asChild size="lg">
-                  <Link href="/book">Book a Consultation <ArrowRight className="ml-2 h-5 w-5" /></Link>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <Link href="/portfolio">Our Works</Link>
-                </Button>
+    <div className="bg-white">
+      <main>
+        {/* Hero Section */}
+        <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-white">
+          <div className="absolute inset-0">
+            <Image
+              src="https://placehold.co/1920x1080.png"
+              alt="Hero background"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="brightness-50"
+              data-ai-hint="abstract background"
+              priority
+            />
+          </div>
+          <div className="relative z-10 text-center space-y-6 px-4">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+              Build Your Vision
+            </h1>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
+              Create stunning websites with our intuitive platform. No coding required.
+            </p>
+            <div className="flex justify-center gap-4">
+              <Button size="lg" asChild>
+                <Link href="#contact">Get Started</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black">
+                <Link href="#features">Learn More</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <Section id="features">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">Why Choose Us?</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              We provide the best tools and support to help you succeed in the digital world.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            {features.map((feature, index) => (
+              <div key={index} className="text-center space-y-4">
+                <div className="inline-block p-5 bg-accent/20 rounded-full">
+                  {feature.icon}
+                </div>
+                <h3 className="text-2xl font-semibold">{feature.title}</h3>
+                <p className="text-muted-foreground">
+                  {feature.description}
+                </p>
               </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* Image + Text Sections */}
+        <Section className="bg-gray-50">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="https://placehold.co/800x800.png"
+                alt="Feature one"
+                fill
+                style={{ objectFit: 'cover' }}
+                data-ai-hint="team collaborating"
+              />
             </div>
-            <div className="relative h-80 md:h-96 w-full">
-              <AiImage prompt="digital agency meeting" alt="Digital Agency Collaboration" className="rounded-lg shadow-xl" width={800} height={600} />
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold">Powerful by Design</h2>
+              <p className="text-muted-foreground text-lg">
+                Our platform is engineered for performance and scalability, ensuring your website is always fast and reliable.
+              </p>
+              <Button asChild>
+                <Link href="#contact">Request a Demo</Link>
+              </Button>
             </div>
           </div>
-        </div>
-      </section>
+        </Section>
+        
+        <Section>
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div className="space-y-4 md:order-2">
+              <h2 className="text-3xl md:text-4xl font-bold">Intuitive to Use</h2>
+              <p className="text-muted-foreground text-lg">
+                With a simple drag-and-drop interface, building your dream website has never been easier.
+              </p>
+              <Button asChild>
+                <Link href="#contact">Start Building</Link>
+              </Button>
+            </div>
+            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg md:order-1">
+              <Image
+                src="https://placehold.co/800x800.png"
+                alt="Feature two"
+                fill
+                style={{ objectFit: 'cover' }}
+                data-ai-hint="person designing"
+              />
+            </div>
+          </div>
+        </Section>
 
-      <section id="services" className="py-20 md:py-28">
-        <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline">Our Services</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We provide a wide range of services to help your business grow and succeed in the digital landscape.
+        {/* Testimonials Section */}
+        <Section id="testimonials" className="bg-gray-50">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">Loved by Creators</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Hear what our amazing customers have to say about their experience.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service) => (
-              <Card key={service.title} className="text-center group hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="mx-auto bg-accent/10 p-4 rounded-full w-fit group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full max-w-4xl mx-auto"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1 h-full">
+                    <Card className="flex flex-col h-full shadow-md">
+                      <CardContent className="flex-grow flex flex-col justify-center items-center text-center p-8 space-y-4">
+                        <p className="text-muted-foreground italic">&quot;{testimonial.quote}&quot;</p>
+                        <div className="pt-4">
+                           <Avatar className="w-20 h-20 mb-2">
+                            <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint={testimonial.hint} />
+                            <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                           </Avatar>
+                           <h4 className="font-semibold">{testimonial.name}</h4>
+                           <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <h3 className="text-xl font-bold font-headline mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-[-50px] hidden sm:flex" />
+            <CarouselNext className="right-[-50px] hidden sm:flex" />
+          </Carousel>
+        </Section>
 
-      <section id="portfolio" className="py-20 md:py-28 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline">Featured Works</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Here&apos;s a glimpse of the successful projects we&apos;ve delivered for our amazing clients.
-            </p>
+        {/* Contact Section */}
+        <Section id="contact">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold">Ready to Start?</h2>
+              <p className="text-muted-foreground text-lg">
+                Let's talk about your next project. Fill out the form and we'll be in touch shortly.
+              </p>
+            </div>
+            <Card className="p-8 shadow-xl">
+              <form className="space-y-4">
+                <Input placeholder="Your Name" />
+                <Input type="email" placeholder="Your Email" />
+                <Textarea placeholder="Your Message" rows={5} />
+                <Button type="submit" className="w-full" size="lg">Send Message</Button>
+              </form>
+            </Card>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {portfolioHighlights.map((project) => (
-              <Card key={project.id} className="overflow-hidden group">
-                <div className="relative h-60 w-full">
-                   <AiImage prompt={project.hint} alt={project.title} className="group-hover:scale-105 transition-transform duration-500" width={600} height={400} cacheKey={`portfolio-${project.id}`} />
-                </div>
-                <CardContent className="p-6">
-                  <p className="text-sm text-accent font-semibold">{project.category}</p>
-                  <h3 className="text-xl font-bold font-headline mt-1">{project.title}</h3>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Button asChild size="lg" variant="outline">
-              <Link href="/portfolio">View Full Portfolio <ArrowRight className="ml-2 h-5 w-5" /></Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+        </Section>
 
-      <section id="testimonials" className="py-20 md:py-28">
-        <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline">What Our Clients Say</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We pride ourselves on building strong relationships and delivering value.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="flex flex-col">
-                <CardContent className="p-6 flex-grow">
-                  <div className="flex items-center mb-4">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />)}
-                  </div>
-                  <p className="text-muted-foreground italic">&quot;{testimonial.text}&quot;</p>
-                </CardContent>
-                <div className="bg-muted/50 p-6 flex items-center space-x-4">
-                   <Avatar>
-                      <AiImage prompt={testimonial.hint} alt={testimonial.name} className="" width={100} height={100} isAvatar={true} cacheKey={`testimonial-${testimonial.name}`} />
-                      <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.title}</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      </main>
     </div>
   );
 }
