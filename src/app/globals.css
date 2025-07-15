@@ -83,3 +83,17 @@
 .fade-in-section {
   animation: fade-in 0.8s ease-out forwards;
 }
+
+@keyframes unfold {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.animate-unfold {
+  transform-origin: top;
+  animation: unfold 1s ease-out forwards;
+}
