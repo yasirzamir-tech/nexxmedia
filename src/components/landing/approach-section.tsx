@@ -24,25 +24,46 @@ const approachItems = [
 
 const ApproachItem = ({ title, description }: { title: string; description: string }) => {
   const [rotation, setRotation] = useState(0);
+  const itemRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const scrollDelta = currentScrollY - lastScrollY.current;
-
-      // Rotate based on scroll direction, with a multiplier to control speed
       setRotation(prevRotation => prevRotation + scrollDelta * 0.3);
-
       lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          lastScrollY.current = window.scrollY;
+          window.addEventListener('scroll', handleScroll, { passive: true });
+        } else {
+          window.removeEventListener('scroll', handleScroll);
+        }
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the item is visible
+      }
+    );
+
+    const currentRef = itemRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
   
   return (
-    <div className="bg-gray-50 rounded-2xl p-8 border-none">
+    <div ref={itemRef} className="bg-gray-50 rounded-2xl p-8 border-none">
        <div className="flex items-center gap-8 w-full">
         <div className="flex-shrink-0 bg-white rounded-2xl p-6">
           <Plus
