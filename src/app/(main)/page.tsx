@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import OurStorySection from '@/components/landing/our-story-section';
 
 export default function HomePage() {
   const [showExplore, setShowExplore] = useState(false);
@@ -55,6 +56,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        <OurStorySection />
       </main>
     </div>
   );
