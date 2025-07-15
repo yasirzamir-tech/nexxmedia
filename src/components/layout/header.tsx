@@ -41,7 +41,7 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center bg-gray-100/95 backdrop-blur-sm rounded-full shadow-lg border border-gray-200/50">
         <div className="mr-auto flex items-center pl-6">
           <Link href="/" className="flex items-center space-x-2 text-black">
-            <span className="font-bold text-lg tracking-widest">NEXX MEDIA</span>
+            <span className="font-black text-xl tracking-tighter">NEXX MEDIA</span>
           </Link>
         </div>
         <nav className="hidden items-center space-x-2 lg:flex">
@@ -70,7 +70,7 @@ export default function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link href="/" className="flex items-center space-x-2">
-                    <span className="font-bold text-lg tracking-widest">NEXX MEDIA</span>
+                    <span className="font-black text-xl tracking-tighter">NEXX MEDIA</span>
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4 py-6">

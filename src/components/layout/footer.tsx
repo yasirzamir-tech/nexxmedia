@@ -13,7 +13,7 @@ export default function Footer() {
           {/* About Column */}
           <div className="space-y-4 md:col-span-1">
             <Link href="/" className="flex items-center space-x-2">
-              <span className="font-bold text-lg tracking-widest">NEXX MEDIA</span>
+              <span className="font-black text-xl tracking-tighter">NEXX MEDIA</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               A clean and modern landing page template to build your vision.
