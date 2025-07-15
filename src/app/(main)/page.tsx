@@ -37,12 +37,14 @@ export default function HomePage() {
           </div>
           <div className="relative container mx-auto px-4 flex justify-start">
             <div className="bg-white rounded-2xl w-full max-w-2xl p-12 md:p-16 animate-unfold">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight">
-                TAILORED MARKETING STRATEGIES
-              </h1>
-              <p className="text-lg text-gray-700 mt-6">
-                Empowering Businesses Digitally
-              </p>
+              <div className="opacity-0 animate-fade-in [animation-delay:0.5s]">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight">
+                  TAILORED MARKETING STRATEGIES
+                </h1>
+                <p className="text-lg text-gray-700 mt-6">
+                  Empowering Businesses Digitally
+                </p>
+              </div>
               <div className={cn("mt-10 transition-opacity duration-500", showExplore ? "opacity-100" : "opacity-0")}>
                 <Link href="/services">
                   <Button size="lg" className="bg-black text-white hover:bg-gray-800 rounded-lg">
