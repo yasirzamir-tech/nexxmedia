@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import ServicesSection from '@/components/landing/services-section';
+import ApproachSection from '@/components/landing/approach-section';
 
 export default function HomePage() {
   return (
@@ -25,6 +26,8 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <ApproachSection />
 
         <ServicesSection />
 
