@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import OurStorySection from '@/components/landing/our-story-section';
 import ExpertiseSection from '@/components/landing/expertise-section';
+import OurMissionSection from '@/components/landing/our-mission-section';
 
 export default function HomePage() {
   const [showExplore, setShowExplore] = useState(false);
@@ -59,6 +60,7 @@ export default function HomePage() {
         </section>
         <ExpertiseSection />
         <OurStorySection />
+        <OurMissionSection />
       </main>
     </div>
   );
