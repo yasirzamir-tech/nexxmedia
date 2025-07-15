@@ -45,7 +45,7 @@ const ApproachItem = ({ title, description }: { title: string; description: stri
         }
       },
       {
-        threshold: 0.5, // Trigger when 50% of the item is visible
+        threshold: 0.5,
       }
     );
 
@@ -67,7 +67,8 @@ const ApproachItem = ({ title, description }: { title: string; description: stri
        <div className="flex items-center gap-8 w-full">
         <div className="flex-shrink-0 bg-white rounded-2xl p-6">
           <Plus
-            className="h-12 w-12 text-gray-900 transition-transform duration-100 ease-linear"
+            className="h-16 w-16 text-gray-900 transition-transform duration-100 ease-linear"
+            strokeWidth={1.5}
             style={{ transform: `rotate(${rotation}deg)` }}
           />
         </div>
