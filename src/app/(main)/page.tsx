@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import OurStorySection from '@/components/landing/our-story-section';
+import ExpertiseSection from '@/components/landing/expertise-section';
 
 export default function HomePage() {
   const [showExplore, setShowExplore] = useState(false);
@@ -56,6 +57,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        <ExpertiseSection />
         <OurStorySection />
       </main>
     </div>
