@@ -32,7 +32,7 @@ const ApproachItem = ({ title, description }: { title: string; description: stri
       const scrollDelta = currentScrollY - lastScrollY.current;
 
       // Rotate based on scroll direction, with a multiplier to control speed
-      setRotation(prevRotation => prevRotation + scrollDelta * 0.1);
+      setRotation(prevRotation => prevRotation + scrollDelta * 0.3);
 
       lastScrollY.current = currentScrollY;
     };
