@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, Mountain } from "lucide-react"
+import { Menu, ShoppingBag } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -11,33 +11,22 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "#features", label: "About" },
-  { href: "#testimonials", label: "Services" },
-  { href: "#contact", label: "Contact" },
+  { href: "#portfolio", label: "portfolio" },
+  { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
+  { href: "#more", label: "More" },
 ]
 
 export default function Header() {
   const [isSheetOpen, setSheetOpen] = React.useState(false)
-  const [isScrolled, setIsScrolled] = React.useState(false)
   const pathname = usePathname()
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   const NavLink = ({ href, label, className }: { href: string; label: string, className?: string }) => {
-    // For single page app, active state might not be needed or can be handled with scroll spying
-    const isActive = pathname === href; 
     return (
       <Link
         href={href}
         className={cn(
-          "text-sm font-medium transition-colors px-3 py-2 rounded-md",
-          isScrolled ? "text-gray-700 hover:text-primary" : "text-white hover:bg-white/10",
+          "text-sm font-medium transition-colors px-3 py-2 rounded-md text-gray-700 hover:text-black",
           className
         )}
         onClick={() => setSheetOpen(false)}
@@ -48,15 +37,11 @@ export default function Header() {
   }
 
   return (
-    <header className={cn(
-      "sticky top-0 z-50 w-full transition-all duration-300",
-      isScrolled ? "bg-white shadow-md" : "bg-transparent"
-    )}>
-      <div className="container flex h-20 items-center">
-        <div className="mr-4 flex items-center">
-          <Link href="/" className={cn("flex items-center space-x-2", isScrolled ? "text-black" : "text-white")}>
-            <Mountain className="h-6 w-6" />
-            <span className="font-bold text-lg">WixSite</span>
+    <header className="fixed top-0 z-50 w-full p-4">
+      <div className="container mx-auto flex h-16 items-center bg-gray-100/95 backdrop-blur-sm rounded-full shadow-lg border border-gray-200/50">
+        <div className="mr-auto flex items-center pl-6">
+          <Link href="/" className="flex items-center space-x-2 text-black">
+            <span className="font-bold text-lg tracking-widest">NEXX MEDIA</span>
           </Link>
         </div>
         <nav className="hidden items-center space-x-2 lg:flex">
@@ -64,10 +49,16 @@ export default function Header() {
             <NavLink key={link.href} {...link} />
           ))}
         </nav>
-        <div className="flex flex-1 items-center justify-end space-x-2">
+        <div className="flex items-center justify-end space-x-4 pl-4 pr-6 ml-auto">
+           <div className="relative">
+             <ShoppingBag className="h-6 w-6 text-gray-700"/>
+             <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-black text-white text-xs">
+               0
+             </span>
+           </div>
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={cn("lg:hidden", isScrolled ? "text-black" : "text-white", "hover:bg-white/20")}>
+              <Button variant="ghost" size="icon" className="lg:hidden text-black hover:bg-black/10">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
@@ -79,8 +70,7 @@ export default function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link href="/" className="flex items-center space-x-2">
-                    <Mountain className="h-6 w-6" />
-                    <span className="font-bold text-lg">WixSite</span>
+                    <span className="font-bold text-lg tracking-widest">NEXX MEDIA</span>
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4 py-6">

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Mountain, Linkedin, Twitter, Instagram, Facebook } from "lucide-react"
+import { Linkedin, Twitter, Instagram, Facebook } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,8 +13,7 @@ export default function Footer() {
           {/* About Column */}
           <div className="space-y-4 md:col-span-1">
             <Link href="/" className="flex items-center space-x-2">
-              <Mountain className="h-6 w-6" />
-              <span className="font-bold text-lg">WixSite</span>
+              <span className="font-bold text-lg tracking-widest">NEXX MEDIA</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               A clean and modern landing page template to build your vision.
@@ -25,10 +24,11 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link></li>
-              <li><Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
-              <li><Link href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">Services</Link></li>
-              <li><Link href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+              <li><Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link></li>
+              <li><Link href="#portfolio" className="text-muted-foreground hover:text-foreground transition-colors">portfolio</Link></li>
+              <li><Link href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
+              <li><Link href="#services" className="text-muted-foreground hover:text-foreground transition-colors">Services</Link></li>
+              <li><Link href="#more" className="text-muted-foreground hover:text-foreground transition-colors">More</Link></li>
             </ul>
           </div>
 
@@ -63,7 +63,7 @@ export default function Footer() {
 
         </div>
         <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} WixSite. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} NEXX MEDIA. All rights reserved.</p>
         </div>
       </div>
     </footer>
