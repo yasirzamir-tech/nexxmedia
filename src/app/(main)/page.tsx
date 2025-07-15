@@ -62,7 +62,7 @@ const testimonials = [
   },
 ];
 
-const Section = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+const Section = ({ children, className, ...props }: { children: React.ReactNode, className?: string, id?: string }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -90,7 +90,7 @@ const Section = ({ children, className }: { children: React.ReactNode, className
   }, []);
 
   return (
-    <section ref={ref} className={`py-20 md:py-28 opacity-0 ${className}`}>
+    <section ref={ref} className={`py-20 md:py-28 opacity-0 ${className}`} {...props}>
       <div className="container mx-auto px-4">
         {children}
       </div>
