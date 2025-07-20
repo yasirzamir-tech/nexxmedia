@@ -62,6 +62,7 @@ export default function HomePage() {
         <ExpertiseSection />
         <OurStorySection />
         <OurMissionSection />
+        <ApproachSection />
       </main>
     </div>
   );
