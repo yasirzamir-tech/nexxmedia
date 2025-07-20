@@ -42,7 +42,7 @@ export default function OurMissionSection() {
         inView ? "translate-y-0" : "translate-y-20"
       )}>
         <div className="grid md:grid-cols-5 gap-8 items-stretch">
-          <div className="bg-black text-white rounded-3xl p-12 md:p-20 flex flex-col justify-center md:col-span-3">
+          <div className="bg-black text-white rounded-3xl p-12 md:p-20 flex flex-col justify-center md:col-span-4">
             <div className="space-y-6">
               <h2 className="text-4xl font-bold tracking-tight">OUR MISSION</h2>
               <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
@@ -51,7 +51,7 @@ export default function OurMissionSection() {
               </p>
             </div>
           </div>
-          <div className="bg-black text-white rounded-3xl p-12 md:p-20 flex items-center justify-center md:col-span-2">
+          <div className="bg-black text-white rounded-3xl p-12 md:p-20 flex items-center justify-center md:col-span-1">
             <Button
               variant="outline"
               size="lg"
