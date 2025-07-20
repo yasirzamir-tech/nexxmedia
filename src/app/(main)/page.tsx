@@ -62,6 +62,18 @@ export default function HomePage() {
         <ExpertiseSection />
         <OurStorySection />
         <OurMissionSection />
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <Image
+              src="https://placehold.co/1200x400.png"
+              alt="Modern office workplace"
+              data-ai-hint="modern office"
+              width={1200}
+              height={400}
+              className="w-full rounded-3xl"
+            />
+          </div>
+        </section>
       </main>
     </div>
   );
