@@ -58,8 +58,9 @@ export default function TestimonialsSection() {
             </h2>
           </div>
           <div className="bg-white rounded-3xl p-12">
-            <Carousel 
+            <Carousel
               setApi={setApi}
+              orientation="vertical"
               plugins={[
                 Autoplay({
                   delay: 4000,
@@ -68,9 +69,9 @@ export default function TestimonialsSection() {
               ]}
               className="w-full"
             >
-              <CarouselContent>
+              <CarouselContent className="h-[280px]">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index}>
+                  <CarouselItem key={index} className="pt-4 animate-fade-in">
                     <div className="flex flex-col h-full justify-between">
                       <div>
                         <div className="flex items-center mb-6">
