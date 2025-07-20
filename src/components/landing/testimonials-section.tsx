@@ -76,10 +76,10 @@ export default function TestimonialsSection() {
                       <div>
                         <div className="flex items-center mb-6">
                           {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 text-black fill-black" />
+                            <Star key={`filled-${i}`} className="h-5 w-5 text-black fill-black" />
                           ))}
                           {[...Array(5 - testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 text-black" />
+                            <Star key={`empty-${i}`} className="h-5 w-5 text-black" />
                           ))}
                         </div>
                         <blockquote className="text-2xl font-bold tracking-tight text-gray-900 leading-snug">
