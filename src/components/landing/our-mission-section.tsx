@@ -1,10 +1,46 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
-import React from 'react';
+import { cn } from '@/lib/utils';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function OurMissionSection() {
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="py-20 bg-black text-white">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} className={cn(
+      "py-20 bg-black text-white transition-opacity duration-1000",
+      inView ? "opacity-100" : "opacity-0"
+    )}>
+      <div className={cn(
+        "container mx-auto px-4 transform transition-transform duration-1000",
+        inView ? "translate-y-0" : "translate-y-20"
+      )}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-4xl font-bold tracking-tight">OUR MISSION</h2>
