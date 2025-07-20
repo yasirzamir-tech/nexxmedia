@@ -34,22 +34,24 @@ export default function OurMissionSection() {
 
   return (
     <section ref={sectionRef} className={cn(
-      "py-20 bg-black text-white transition-opacity duration-1000",
+      "py-20 bg-white transition-opacity duration-1000",
       inView ? "opacity-100" : "opacity-0"
     )}>
       <div className={cn(
         "container mx-auto px-4 transform transition-transform duration-1000",
         inView ? "translate-y-0" : "translate-y-20"
       )}>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-4xl font-bold tracking-tight">OUR MISSION</h2>
-            <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
-              At Nexx Media, Our mission is to help bold brands and visionary
-              entrepreneurs grow with clarity, confidence, and conversions
-            </p>
+        <div className="grid md:grid-cols-2 gap-8 items-stretch">
+          <div className="bg-black text-white rounded-3xl p-12 md:p-20 flex flex-col justify-center">
+            <div className="space-y-6">
+              <h2 className="text-4xl font-bold tracking-tight">OUR MISSION</h2>
+              <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
+                At Nexx Media, Our mission is to help bold brands and visionary
+                entrepreneurs grow with clarity, confidence, and conversions
+              </p>
+            </div>
           </div>
-          <div className="flex justify-center md:justify-end">
+          <div className="bg-black text-white rounded-3xl p-12 md:p-20 flex items-center justify-center">
             <Button
               variant="outline"
               size="lg"
