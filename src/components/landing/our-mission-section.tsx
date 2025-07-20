@@ -33,17 +33,18 @@ export default function OurMissionSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={cn(
-      "py-20 bg-white transition-opacity duration-1000",
-      inView ? "opacity-100" : "opacity-0"
-    )}>
-      <div className={cn(
-        "container mx-auto px-4 transform transition-transform duration-1000",
-        inView ? "translate-y-0" : "translate-y-20"
-      )}>
+    <section ref={sectionRef} className="py-20 bg-white">
+      <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-5 gap-8 items-stretch">
           <div className="bg-black text-white rounded-3xl p-12 md:p-20 flex flex-col justify-center md:col-span-4">
-            <div className="space-y-6">
+            <div
+              className={cn(
+                'space-y-6 transition-all duration-1000 transform-gpu',
+                inView
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-10'
+              )}
+            >
               <h2 className="text-4xl font-bold tracking-tight">OUR MISSION</h2>
               <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
                 At Nexx Media, Our mission is to help bold brands and visionary
