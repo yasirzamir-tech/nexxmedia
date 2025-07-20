@@ -36,8 +36,8 @@ export default function HomePage() {
               src="https://placehold.co/1800x1200.png"
               alt="Luxury leather goods"
               data-ai-hint="leather handbag"
-              layout="fill"
-              objectFit="cover"
+              fill
+              className="object-cover"
             />
           </div>
           <div className="relative container mx-auto px-4 flex justify-start">
