@@ -9,6 +9,7 @@ import OurStorySection from '@/components/landing/our-story-section';
 import ExpertiseSection from '@/components/landing/expertise-section';
 import OurMissionSection from '@/components/landing/our-mission-section';
 import ApproachSection from '@/components/landing/approach-section';
+import TestimonialsSection from '@/components/landing/testimonials-section';
 
 export default function HomePage() {
   const [showExplore, setShowExplore] = useState(false);
@@ -74,6 +75,8 @@ export default function HomePage() {
             />
           </div>
         </section>
+        <TestimonialsSection />
+        <ApproachSection />
       </main>
     </div>
   );
