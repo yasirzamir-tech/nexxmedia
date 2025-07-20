@@ -39,14 +39,12 @@ export default function OurMissionSection() {
           <div className="bg-black text-white rounded-3xl p-12 md:p-20 flex flex-col justify-center md:col-span-4">
             <div
               className={cn(
-                'space-y-6 transition-all duration-1000 transform-gpu',
-                inView
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-10'
+                'opacity-0',
+                inView && 'animate-unfold-reveal'
               )}
             >
               <h2 className="text-4xl font-bold tracking-tight">OUR MISSION</h2>
-              <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
+              <p className="text-lg text-gray-300 max-w-lg leading-relaxed mt-6">
                 At Nexx Media, Our mission is to help bold brands and visionary
                 entrepreneurs grow with clarity, confidence, and conversions
               </p>

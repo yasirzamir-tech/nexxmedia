@@ -97,3 +97,20 @@
   transform-origin: top;
   animation: unfold 1s ease-out forwards;
 }
+
+@keyframes unfold-reveal {
+  from {
+    transform-origin: bottom left;
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform-origin: bottom left;
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-unfold-reveal {
+  animation: unfold-reveal 1s ease-out forwards;
+}
