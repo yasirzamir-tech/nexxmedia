@@ -5,25 +5,26 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel";
 import { cn } from '@/lib/utils';
 import Autoplay from "embla-carousel-autoplay";
+import Image from 'next/image';
 
 const testimonials = [
   {
     name: "Ahmed Khan",
     rating: 5,
     quote: "Working with Nexx Media was a game-changer for our business. Their creative approach and analytical insights transformed our marketing efforts.",
-    photo: "/images/testimonials/ahmed-khan.jpg"
+    photo: "https://placehold.co/100x100.png"
   },
   {
     name: "Sarah Johnson",
     rating: 5,
     quote: "The team at Nexx Media is incredibly talented and dedicated. They took the time to understand our brand and delivered exceptional results.",
-    photo: "/images/testimonials/sarah-johnson.jpg"
+    photo: "https://placehold.co/100x100.png"
   },
   {
     name: "Michael Chen",
     rating: 5,
     quote: "A truly professional and results-driven agency. Our ROI has never been better. Highly recommend their services to anyone looking to grow.",
-    photo: "/images/testimonials/michael-chen.jpg"
+    photo: "https://placehold.co/100x100.png"
   }
 ];
 
@@ -368,12 +369,20 @@ export default function TestimonialsSection() {
                             </div>
                           </div>
                           
-                          <blockquote className="text-sm sm:text-base lg:text-lg font-semibold tracking-tight leading-snug quote-text line-clamp-4">
+                          <blockquote className="text-sm sm:text-base font-semibold tracking-tight leading-snug quote-text line-clamp-4">
                             "{testimonial.quote}"
                           </blockquote>
                         </div>
                         
-                        <div className="name-badge pl-1 sm:pl-2 mt-4 sm:mt-6">
+                        <div className="flex items-center gap-4 name-badge pl-1 sm:pl-2 mt-4 sm:mt-6">
+                           <Image
+                              src={testimonial.photo}
+                              alt={testimonial.name}
+                              width={40}
+                              height={40}
+                              className="rounded-full"
+                              data-ai-hint="person face"
+                            />
                           <p className="text-base sm:text-lg font-medium text-gray-700">
                             {testimonial.name}
                           </p>
