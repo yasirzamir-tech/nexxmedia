@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel";
 import { cn } from '@/lib/utils';
@@ -202,7 +201,7 @@ export default function TestimonialsSection() {
                 }),
               ]}
             >
-              <CarouselContent>
+              <CarouselContent className="h-[220px]">
                 {testimonials.map((testimonial, index) => (
                   <CarouselItem key={`${testimonial.name}-${index}`} className={cn("pt-4 transition-all duration-500", {"opacity-0": !isVisible}) } style={{animationDelay: `${0.2 * index}s`}}>
                     <div className={cn(
@@ -227,7 +226,7 @@ export default function TestimonialsSection() {
                           </div>
                         </div>
                         
-                        <blockquote className="text-lg font-semibold tracking-tight leading-snug quote-text">
+                        <blockquote className="text-md font-semibold tracking-tight leading-snug quote-text">
                           "{testimonial.quote}"
                         </blockquote>
                       </div>
