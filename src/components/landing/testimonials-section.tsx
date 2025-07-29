@@ -202,7 +202,7 @@ export default function TestimonialsSection() {
                 }),
               ]}
             >
-              <CarouselContent className="h-[320px]">
+              <CarouselContent>
                 {testimonials.map((testimonial, index) => (
                   <CarouselItem key={`${testimonial.name}-${index}`} className={cn("pt-4 transition-all duration-500", {"opacity-0": !isVisible}) } style={{animationDelay: `${0.2 * index}s`}}>
                     <div className={cn(
