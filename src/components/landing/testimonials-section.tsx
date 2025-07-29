@@ -4,7 +4,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel";
-import { Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const testimonials = [
@@ -28,8 +27,21 @@ const testimonials = [
   }
 ];
 
+const SleekStar = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    {...props}
+  >
+    <path d="M12 .587l3.668 7.426 8.213 1.193-5.944 5.794 1.402 8.17L12 18.897l-7.339 4.273 1.402-8.17L.119 9.206l8.213-1.193L12 .587z" />
+  </svg>
+);
+
+
 export default function TestimonialsSection() {
-  const [api, setApi] = useState(null);
+  const [api, setApi] = useState<CarouselApi | null>(null);
   const [current, setCurrent] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -432,28 +444,26 @@ export default function TestimonialsSection() {
                             className="profile-photo animate-photoReveal"
                             style={{ animationDelay: '0.1s' }}
                             onError={(e) => {
-                              e.target.style.display = 'none';
+                              (e.target as HTMLImageElement).style.display = 'none';
                             }}
                           />
                           <div className="star-container">
                             {[...Array(testimonial.rating)].map((_, i) => (
-                              <Star 
-                                key={`filled-${i}-${testimonial.name}-${index}`} 
-                                className="h-5 w-5 text-black fill-black animate-starPop" 
-                                style={{ animationDelay: `${0.3 + i * 0.1}s` }}
+                              <SleekStar
+                                key={`filled-${i}-${testimonial.name}-${index}`}
+                                className="h-5 w-5 text-black"
                               />
                             ))}
                             {[...Array(5 - testimonial.rating)].map((_, i) => (
-                              <Star 
-                                key={`empty-${i}-${testimonial.name}-${index}`} 
-                                className="h-5 w-5 text-gray-300 animate-starPop" 
-                                style={{ animationDelay: `${0.3 + (testimonial.rating + i) * 0.1}s` }}
+                              <SleekStar
+                                key={`empty-${i}-${testimonial.name}-${index}`}
+                                className="h-5 w-5 text-gray-300"
                               />
                             ))}
                           </div>
                         </div>
                         
-                        <blockquote className="text-xl font-semibold tracking-tight leading-snug quote-text animate-quantumText" style={{ animationDelay: '0.6s' }}>
+                        <blockquote className="text-lg font-semibold tracking-tight leading-snug quote-text animate-quantumText" style={{ animationDelay: '0.6s' }}>
                           "{testimonial.quote}"
                         </blockquote>
                       </div>
