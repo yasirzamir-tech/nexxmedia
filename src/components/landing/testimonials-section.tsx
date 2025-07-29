@@ -11,7 +11,7 @@ const testimonials = [
   {
     name: "Ahmed Khan",
     rating: 5,
-    quote: "Working with T. Kensington was a game-changer for our business. Their creative approach and analytical insights transformed our marketing efforts."
+    quote: "Working with Nexx Media was a game-changer for our business. Their creative approach and analytical insights transformed our marketing efforts."
   },
   {
     name: "Sarah Johnson",
@@ -71,8 +71,8 @@ export default function TestimonialsSection() {
             >
               <CarouselContent className="h-[280px]">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="pt-4">
-                    <div className="flex flex-col h-full justify-between animate-unfold">
+                  <CarouselItem key={`${testimonial.name}-${index}`} className="pt-4">
+                    <div className="flex flex-col h-full justify-between opacity-0 animate-fadeSlideUp" style={{ animationDelay: `${index * 0.2}s` }}>
                       <div>
                         <div className="flex items-center mb-6">
                           {[...Array(testimonial.rating)].map((_, i) => (
@@ -95,7 +95,7 @@ export default function TestimonialsSection() {
             <div className="flex justify-center gap-2 mt-8">
               {testimonials.map((_, index) => (
                 <button
-                  key={index}
+                  key={`dot-${index}`}
                   onClick={() => api?.scrollTo(index)}
                   className={cn(
                     "h-3 w-3 rounded-full transition-colors",
