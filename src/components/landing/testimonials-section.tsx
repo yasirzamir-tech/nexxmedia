@@ -71,15 +71,15 @@ export default function TestimonialsSection() {
             >
               <CarouselContent className="h-[280px]">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="pt-4 animate-fade-in">
-                    <div className="flex flex-col h-full justify-between">
+                  <CarouselItem key={index} className="pt-4">
+                    <div className="flex flex-col h-full justify-between animate-unfold">
                       <div>
                         <div className="flex items-center mb-6">
                           {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={`filled-${i}`} className="h-5 w-5 text-black fill-black" />
+                            <Star key={`filled-${i}-${index}`} className="h-5 w-5 text-black fill-black" />
                           ))}
                           {[...Array(5 - testimonial.rating)].map((_, i) => (
-                            <Star key={`empty-${i}`} className="h-5 w-5 text-black" />
+                            <Star key={`empty-${i}-${index}`} className="h-5 w-5 text-black" />
                           ))}
                         </div>
                         <blockquote className="text-2xl font-bold tracking-tight text-gray-900 leading-snug">
