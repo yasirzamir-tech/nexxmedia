@@ -36,7 +36,7 @@ export default function HomePage() {
         <section className="relative h-screen flex items-center bg-gray-900 text-black">
           <div className="absolute inset-0 z-0">
             <Image
-              src="https://placehold.co/1800x1200.png"
+              src="https://images.unsplash.com/photo-1604176424472-17cd740f74e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsZWF0aGVyJTIwaGFuZGJhZ3xlbnwwfHx8fDE3NTUwMjYyOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
               alt="Luxury leather goods"
               data-ai-hint="leather handbag"
               fill
@@ -69,7 +69,7 @@ export default function HomePage() {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <Image
-              src="https://placehold.co/1200x400.png"
+              src="https://images.unsplash.com/photo-1558959356-2f36c7322d3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBvZmZpY2V8ZW58MHx8fHwxNzU1MDI2Mjk2fDA&ixlib=rb-4.1.0&q=80&w=1080"
               alt="Modern office workplace"
               data-ai-hint="modern office"
               width={1200}

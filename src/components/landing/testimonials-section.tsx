@@ -12,19 +12,19 @@ const testimonials = [
     name: "Ahmed Khan",
     rating: 5,
     quote: "Working with Nexx Media was a game-changer for our business. Their creative approach and analytical insights transformed our marketing efforts.",
-    photo: "https://placehold.co/100x100.png"
+    photo: "https://images.unsplash.com/photo-1695470667338-e7e8608ff048?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc1NTAyNjI5Nnww&ixlib=rb-4.1.0&q=80&w=1080"
   },
   {
     name: "Sarah Johnson",
     rating: 5,
     quote: "The team at Nexx Media is incredibly talented and dedicated. They took the time to understand our brand and delivered exceptional results.",
-    photo: "https://placehold.co/100x100.png"
+    photo: "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc1NTAyNjI5Nnww&ixlib=rb-4.1.0&q=80&w=1080"
   },
   {
     name: "Michael Chen",
     rating: 5,
     quote: "A truly professional and results-driven agency. Our ROI has never been better. Highly recommend their services to anyone looking to grow.",
-    photo: "https://placehold.co/100x100.png"
+    photo: "https://images.unsplash.com/photo-1695470667338-e7e8608ff048?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc1NTAyNjI5Nnww&ixlib=rb-4.1.0&q=80&w=1080"
   }
 ];
 
