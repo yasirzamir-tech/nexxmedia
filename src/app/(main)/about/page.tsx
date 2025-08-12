@@ -111,7 +111,7 @@ export default function AboutPage() {
                     <Link href="/services">
                         <Button
                             size="lg"
-                            className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-lg"
+                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
                         >
                             Let's Talk Growth
                             <ArrowRight className="ml-2 h-4 w-4" />
