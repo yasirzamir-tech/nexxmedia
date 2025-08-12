@@ -25,8 +25,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <ServicesGridSection />
-
         <ApproachSection />
 
       </main>
