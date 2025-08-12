@@ -31,13 +31,6 @@ const portfolioItems = [
         aiHint: "analytics dashboard graph"
     },
     {
-        title: "E-commerce Performance Boost",
-        description: "Generated over ₹1 Cr+ in gross sales, increased traffic by 32%, and achieved a 40% returning customer rate through a data-driven marketing strategy.",
-        category: "Marketing",
-        image: "https://storage.googleapis.com/stabl-in-prod/e15d8f6d-dd78-422c-8511-d1007b8b7891.png",
-        aiHint: "dashboard analytics"
-    },
-    {
         title: "Social Media Engagement",
         description: "Created and managed a viral social media campaign that grew the client's audience by over 200k followers.",
         category: "Social Media",
@@ -107,8 +100,32 @@ export default function PortfolioPage() {
             </div>
         </section>
 
-        {/* CTA Section */}
+        {/* Full-Width Showcase Section */}
         <section className="py-20 bg-gray-50">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-gray-900">
+                        E-commerce Performance Boost
+                    </h2>
+                    <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-4">
+                        Generated over ₹1 Cr+ in gross sales, increased traffic by 32%, and achieved a 40% returning customer rate through a data-driven marketing strategy.
+                    </p>
+                </div>
+                <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
+                    <Image
+                        src="https://storage.googleapis.com/stabl-in-prod/e15d8f6d-dd78-422c-8511-d1007b8b7891.png"
+                        alt="E-commerce Performance Dashboard"
+                        width={1200}
+                        height={600}
+                        className="w-full h-auto"
+                        data-ai-hint="dashboard analytics"
+                    />
+                </div>
+            </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-gray-900">
               Have a project in mind?
