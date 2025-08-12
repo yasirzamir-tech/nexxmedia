@@ -90,7 +90,7 @@ export default function Header() {
                      <Link
                       key={link.href}
                       href={link.href}
-                      className="text-lg text-gray-700 hover:text-primary"
+                      className="text-lg text-gray-700 hover:text-black"
                       onClick={() => setSheetOpen(false)}
                     >
                       {link.label}
