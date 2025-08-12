@@ -22,8 +22,8 @@ const services = [
   },
   {
     number: '04',
-    title: 'EMAIL MARKETING',
-    description: 'Crafting targeted campaigns that convert and retain.',
+    title: 'MARKET AUTOMATION',
+    description: 'Streamlining marketing efforts for efficiency and scale.',
   },
 ];
 
