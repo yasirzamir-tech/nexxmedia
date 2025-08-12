@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 
 const clients = [
   { name: "Escaro Royale", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ4g4B2sR1g3p2e2H2x2F7Y5C8K3g2M1O8w&s", hint: "gold logo" },
-  { name: "Quantum Leap", logo: "https://placehold.co/100x100.png", hint: "tech logo" },
+  { name: "Mille Dollari", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrl_8bA42cO3s3g_4Y-g_gJz7q3n9x6zYw&s", hint: "gold logo crown" },
   { name: "Apex Solutions", logo: "https://placehold.co/100x100.png", hint: "mountain logo" },
   { name: "Stellar Co.", logo: "https://placehold.co/100x100.png", hint: "star logo" },
   { name: "Momentum", logo: "https://placehold.co/100x100.png", hint: "arrow logo" },
