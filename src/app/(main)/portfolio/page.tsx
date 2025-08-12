@@ -6,52 +6,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Badge } from '@/components/ui/badge';
-
-const portfolioItems = [
-    {
-        title: "Luxe Leather Goods",
-        description: "A complete branding and web design overhaul for a luxury leather goods company, focusing on elegance and craftsmanship.",
-        category: "Branding",
-        image: "https://placehold.co/600x400.png",
-        aiHint: "luxury leather bag"
-    },
-    {
-        title: "Tech Startup Launch",
-        description: "Developed a go-to-market strategy and performance marketing campaign that exceeded lead generation goals by 150%.",
-        category: "Marketing",
-        image: "https://placehold.co/600x400.png",
-        aiHint: "startup team meeting"
-    },
-    {
-        title: "E-commerce SEO Boost",
-        description: "Implemented a comprehensive SEO strategy that increased organic traffic by 80% and sales by 45% in six months.",
-        category: "SEO",
-        image: "https://placehold.co/600x400.png",
-        aiHint: "analytics dashboard graph"
-    },
-    {
-        title: "Social Media Engagement",
-        description: "Created and managed a viral social media campaign that grew the client's audience by over 200k followers.",
-        category: "Social Media",
-        image: "https://placehold.co/600x400.png",
-        aiHint: "social media feed"
-    },
-    {
-        title: "SaaS Platform Redesign",
-        description: "A complete UI/UX redesign for a SaaS platform, improving user retention and task completion rates.",
-        category: "Web Design",
-        image: "https://placehold.co/600x400.png",
-        aiHint: "saas dashboard interface"
-    },
-    {
-        title: "Content Marketing Hub",
-        description: "Built a content hub that became a primary source of inbound leads, positioning the client as a thought leader.",
-        category: "Content Marketing",
-        image: "https://placehold.co/600x400.png",
-        aiHint: "person writing blog"
-    }
-];
 
 export default function PortfolioPage() {
   return (
@@ -72,32 +26,6 @@ export default function PortfolioPage() {
               </p>
             </div>
           </div>
-        </section>
-
-        {/* Portfolio Grid Section */}
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {portfolioItems.map((item, index) => (
-                        <div key={index} className="group bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                           <div className="relative w-full h-64 overflow-hidden">
-                             <Image
-                                src={item.image}
-                                alt={item.title}
-                                fill
-                                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                data-ai-hint={item.aiHint}
-                             />
-                           </div>
-                           <div className="p-6">
-                                <Badge variant="secondary" className="mb-2">{item.category}</Badge>
-                                <h3 className="text-2xl font-bold tracking-tight text-gray-900">{item.title}</h3>
-                                <p className="text-gray-700 mt-2 leading-relaxed">{item.description}</p>
-                           </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
         </section>
 
         {/* Full-Width Showcase Section */}
