@@ -108,7 +108,7 @@ export default function AboutPage() {
                     We thrive on challenges and turn every obstacle into a strategic opportunity. We partner with visionaries who see every setback as a setup for an even greater comeback. We see you.
                 </p>
                 <div className="mt-10">
-                    <Link href="/services">
+                    <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
                         <Button
                             size="lg"
                             className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
