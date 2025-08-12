@@ -1,3 +1,4 @@
+
 'use client';
 
 import { cn } from "@/lib/utils";
@@ -54,9 +55,9 @@ const ServiceCard = ({ number, title, description }: { number: string; title: st
   );
 };
 
-export default function ServicesGridSection() {
+export default function ServicesGridSection({ id }: { id?: string }) {
   return (
-    <section className="py-20 bg-white">
+    <section id={id} className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service) => (

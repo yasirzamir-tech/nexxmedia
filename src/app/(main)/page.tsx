@@ -100,7 +100,7 @@ export default function HomePage() {
         <TestimonialsSection />
         <WorkflowSection />
         <TailoredMarketingSection />
-        <ServicesGridSection />
+        <ServicesGridSection id="services" />
         <ContactSection />
       </main>
     </div>
