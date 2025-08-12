@@ -17,8 +17,8 @@ const approachItems = [
     description: 'Engage your audience with captivating social media strategies designed to boost brand awareness and drive engagement.',
   },
   {
-    title: 'CONTENT MARKETING',
-    description: 'Tell your brand story effectively with expert content marketing that aligns with your audience\'s preferences and behaviors.',
+    title: 'MARKET AUTOMATION',
+    description: 'Streamline your marketing efforts and drive efficiency with our powerful automation solutions, designed to nurture leads and boost conversions.',
   },
 ];
 
