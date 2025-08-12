@@ -15,9 +15,6 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-2">
               <span className="font-black text-xl tracking-tighter">NEXX MEDIA</span>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              A clean and modern landing page template to build your vision.
-            </p>
           </div>
 
           {/* Quick Links Column */}
