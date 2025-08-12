@@ -111,6 +111,9 @@ export default function Header() {
               </Button>
             </DialogTrigger>
             <DialogContent className="p-0 max-w-4xl">
+              <DialogHeader className="sr-only">
+                  <DialogTitle>Schedule a Meeting</DialogTitle>
+              </DialogHeader>
               <CalendlyContent />
             </DialogContent>
           </Dialog>
@@ -160,6 +163,9 @@ export default function Header() {
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="p-0 max-w-4xl w-[90vw]">
+                        <DialogHeader className="sr-only">
+                           <DialogTitle>Schedule a Meeting</DialogTitle>
+                        </DialogHeader>
                        <CalendlyContent />
                     </DialogContent>
                   </Dialog>
