@@ -13,17 +13,11 @@ import WorkflowSection from '@/components/landing/workflow-section';
 import ServicesGridSection from '@/components/landing/services-grid-section';
 import TailoredMarketingSection from '@/components/landing/tailored-marketing-section';
 import ContactSection from '@/components/landing/contact-section';
-import { PopupButton } from 'react-calendly';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function HomePage() {
   const [showExplore, setShowExplore] = useState(false);
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,17 +61,12 @@ export default function HomePage() {
                       Explore More
                   </Button>
                 </Link>
-                {isClient && <PopupButton
-                    url="https://calendly.com/your-username"
-                    rootElement={document.getElementById("__next")!}
-                    text="Schedule a call with us"
-                    render={({ onClick, disabled, className }) => (
-                        <Button onClick={onClick} size="lg" className="bg-black text-white hover:bg-gray-800 rounded-lg w-full sm:w-auto">
-                            Schedule a call with us
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                    )}
-                  />}
+                <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="bg-black text-white hover:bg-gray-800 rounded-lg w-full sm:w-auto">
+                      Schedule a call with us
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

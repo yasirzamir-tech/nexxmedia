@@ -1,18 +1,13 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ApproachSection from '@/components/landing/approach-section';
 import { Button } from '@/components/ui/button';
-import { PopupButton } from 'react-calendly';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ServicesPage() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <div className="bg-white">
@@ -44,23 +39,15 @@ export default function ServicesPage() {
             <p className="text-lg text-gray-700 max-w-2xl mx-auto mt-4 mb-8">
               Let's talk about how our tailored marketing solutions can help you achieve your goals.
             </p>
-            {isClient && (
-              <PopupButton
-                url="https://calendly.com/your-username"
-                rootElement={document.getElementById('__next')!}
-                text="Schedule a call with us"
-                render={({ onClick }) => (
-                  <Button
-                    onClick={onClick}
-                    size="lg"
-                    className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
-                  >
-                    Book a call with us
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                )}
-              />
-            )}
+            <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
+              >
+                Book a call with us
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </section>
       </main>

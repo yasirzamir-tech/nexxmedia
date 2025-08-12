@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -12,7 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
 import { Calendar } from 'lucide-react';
-import { PopupButton } from 'react-calendly';
+import Link from 'next/link';
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
@@ -23,12 +23,6 @@ const formSchema = z.object({
 
 export default function ContactSection() {
     const { toast } = useToast()
-    const [isClient, setIsClient] = useState(false)
-
-    useEffect(() => {
-        setIsClient(true)
-    }, [])
-
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -134,18 +128,12 @@ export default function ContactSection() {
                   <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
                     Send Message
                   </Button>
-                  {isClient && <PopupButton
-                    url="https://calendly.com/your-username"
-                    rootElement={document.getElementById("__next")!}
-                    text="Schedule a Meeting"
-                    className="w-full"
-                    render={({ onClick, disabled, className }) => (
-                        <Button type="button" onClick={onClick} size="lg" variant="outline" className={className}>
-                            <Calendar className="mr-2 h-5 w-5" />
-                            Schedule a Meeting
-                        </Button>
-                    )}
-                  />}
+                  <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button type="button" size="lg" variant="outline" className="w-full">
+                        <Calendar className="mr-2 h-5 w-5" />
+                        Schedule a Meeting
+                    </Button>
+                  </Link>
                 </div>
               </form>
             </Form>

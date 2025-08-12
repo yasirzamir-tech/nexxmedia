@@ -4,7 +4,6 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, ArrowRight } from "lucide-react"
-import { PopupButton } from 'react-calendly';
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -19,12 +18,7 @@ const navLinks = [
 
 export default function Header() {
   const [isSheetOpen, setSheetOpen] = React.useState(false)
-  const [isClient, setIsClient] = React.useState(false)
   const pathname = usePathname()
-
-  React.useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   const NavLink = ({ href, label, className }: { href: string; label: string, className?: string }) => {
     return (
@@ -55,18 +49,12 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center justify-end space-x-4 pl-4 pr-6 ml-auto">
-           {isClient && <PopupButton
-              url="https://calendly.com/your-username"
-              rootElement={document.getElementById("__next")!}
-              text="Book a call with us"
-              className="hidden lg:inline-flex"
-              render={({ onClick, disabled, className }) => (
-                <Button onClick={onClick} className={cn(className, "rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md")}>
-                    Book a call with us
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              )}
-            />}
+          <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer" className="hidden lg:inline-flex">
+            <Button className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md">
+                Book a call with us
+                <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="lg:hidden text-black hover:bg-black/10">
@@ -95,17 +83,12 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
-                   {isClient && <PopupButton
-                      url="https://calendly.com/your-username"
-                      rootElement={document.getElementById("__next")!}
-                      text="Book a call with us"
-                      render={({ onClick, disabled, className }) => (
-                        <Button onClick={onClick} className={cn(className, "rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md w-full")}>
-                            Book a call with us
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      )}
-                    />}
+                  <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
+                    <Button className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md w-full">
+                        Book a call with us
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </nav>
               </div>
             </SheetContent>
