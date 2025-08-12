@@ -1,9 +1,10 @@
+
 "use client"
 
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, ArrowRight } from "lucide-react"
+import { Menu, ArrowRight, Phone } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -50,9 +51,10 @@ export default function Header() {
         </nav>
         <div className="flex items-center justify-end space-x-4 pl-4 pr-6 ml-auto">
           <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer" className="hidden lg:inline-flex">
-            <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md">
-                Book a call with us
-                <ArrowRight className="ml-2 h-4 w-4" />
+            <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md group overflow-hidden">
+                <span className="group-hover:-translate-x-2 transition-transform duration-300">Book a call with us</span>
+                <Phone className="absolute right-[1rem] translate-x-12 group-hover:translate-x-0 transition-transform duration-300 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-8 transition-transform duration-300" />
             </Button>
           </Link>
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
@@ -84,9 +86,10 @@ export default function Header() {
                     </Link>
                   ))}
                   <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
-                    <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md w-full">
-                        Book a call with us
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                    <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md w-full group overflow-hidden">
+                        <span className="group-hover:-translate-x-2 transition-transform duration-300">Book a call with us</span>
+                        <Phone className="absolute right-[1rem] translate-x-12 group-hover:translate-x-0 transition-transform duration-300 h-4 w-4" />
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-8 transition-transform duration-300" />
                     </Button>
                   </Link>
                 </nav>
