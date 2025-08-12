@@ -7,27 +7,6 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const teamMembers = [
-  {
-    name: 'Jane Doe',
-    title: 'Founder & CEO',
-    photo: 'https://placehold.co/400x400.png',
-    aiHint: 'professional woman portrait',
-  },
-  {
-    name: 'John Smith',
-    title: 'Head of Marketing',
-    photo: 'https://placehold.co/400x400.png',
-    aiHint: 'professional man portrait',
-  },
-  {
-    name: 'Emily White',
-    title: 'Lead SEO Strategist',
-    photo: 'https://placehold.co/400x400.png',
-    aiHint: 'professional woman smiling',
-  },
-];
-
 const values = [
     {
         title: "Innovation",
@@ -89,38 +68,9 @@ export default function AboutPage() {
                 </div>
             </div>
         </section>
-
-        {/* Meet the Team Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <p className="text-lg text-gray-600 mb-4 tracking-wider">Our Leadership</p>
-              <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-gray-900">
-                MEET THE TEAM
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member) => (
-                <div key={member.name} className="text-center">
-                  <div className="relative w-full aspect-square rounded-3xl overflow-hidden mb-6 shadow-lg">
-                    <Image
-                      src={member.photo}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={member.aiHint}
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold tracking-tight text-gray-900">{member.name}</h3>
-                  <p className="text-base text-primary font-semibold">{member.title}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
         
         {/* Our Values Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <p className="text-lg text-gray-600 mb-4 tracking-wider">Our Core Principles</p>
@@ -140,7 +90,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-gray-900">
               Ready to start your journey?
