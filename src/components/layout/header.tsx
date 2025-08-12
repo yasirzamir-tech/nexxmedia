@@ -59,11 +59,11 @@ export default function Header() {
            {isClient && <PopupButton
               url="https://calendly.com/your-username"
               rootElement={document.getElementById("__next")!}
-              text="Book a Call"
+              text="Book a call with us"
               className="hidden lg:inline-flex"
               render={({ onClick, disabled, className }) => (
-                <Button onClick={onClick} className={cn(className, "rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_15px_hsl(var(--primary))]")}>
-                    Book a Call
+                <Button onClick={onClick} className={cn(className, "rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md")}>
+                    Book a call with us
                     <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               )}
@@ -99,10 +99,10 @@ export default function Header() {
                    {isClient && <PopupButton
                       url="https://calendly.com/your-username"
                       rootElement={document.getElementById("__next")!}
-                      text="Book a Call"
+                      text="Book a call with us"
                       render={({ onClick, disabled, className }) => (
-                        <Button onClick={onClick} className={cn(className, "rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_15px_hsl(var(--primary))] w-full")}>
-                            Book a Call
+                        <Button onClick={onClick} className={cn(className, "rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md w-full")}>
+                            Book a call with us
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       )}
