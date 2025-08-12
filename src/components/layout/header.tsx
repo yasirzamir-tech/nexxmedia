@@ -72,7 +72,11 @@ export default function Header() {
     <div className="h-[650px] overflow-hidden relative">
       {!isCalendlyLoaded && (
         <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-white">
-            <Skeleton className="h-12 w-12 rounded-full" />
+            <div className="flex items-center justify-center space-x-2">
+              <div className="w-3 h-3 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+              <div className="w-3 h-3 bg-primary rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+              <div className="w-3 h-3 bg-primary rounded-full animate-bounce"></div>
+            </div>
         </div>
       )}
       {shouldLoadCalendly && (
