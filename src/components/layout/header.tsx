@@ -70,7 +70,11 @@ export default function Header() {
   
   const CalendlyContent = () => (
     <div className="h-[650px] overflow-hidden relative">
-      {!isCalendlyLoaded && <Skeleton className="absolute inset-0 w-full h-full" />}
+      {!isCalendlyLoaded && (
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-white">
+            <Skeleton className="h-12 w-12 rounded-full" />
+        </div>
+      )}
       {shouldLoadCalendly && (
         <iframe
             src="https://calendly.com/nexxmedia-info/30min"
