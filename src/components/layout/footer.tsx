@@ -42,7 +42,7 @@ export default function Footer() {
                 <a href="#" aria-label="Twitter"><Twitter className="h-5 w-5" /></a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
-                <a href="#" aria-label="Instagram"><Instagram className="h-5 w-5" /></a>
+                <a href="https://www.instagram.com/nexx.media/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram className="h-5 w-5" /></a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
                 <a href="#" aria-label="Facebook"><Facebook className="h-5 w-5" /></a>
