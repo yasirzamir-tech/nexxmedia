@@ -129,7 +129,7 @@ export default function ContactSection() {
                     Send Message
                   </Button>
                   <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer" className="w-full">
-                    <Button type="button" size="lg" variant="outline" className="w-full">
+                    <Button type="button" size="lg" variant="outline" className="w-full hover:bg-primary hover:text-primary-foreground">
                         <Calendar className="mr-2 h-5 w-5" />
                         Schedule a Meeting
                     </Button>
