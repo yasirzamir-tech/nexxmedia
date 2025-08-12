@@ -13,7 +13,7 @@ const approachItems = [
     description: 'Building lasting customer relationships and loyalty.',
   },
   {
-    title: 'SOCIAL MEDIA CAMPAIGNS',
+    title: 'SOCIAL MEDIA MARKETING',
     description: 'Engage your audience with captivating social media strategies designed to boost brand awareness and drive engagement.',
   },
   {
