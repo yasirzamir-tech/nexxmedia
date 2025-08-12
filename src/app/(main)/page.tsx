@@ -15,6 +15,7 @@ import TailoredMarketingSection from '@/components/landing/tailored-marketing-se
 import ContactSection from '@/components/landing/contact-section';
 import { PopupButton } from 'react-calendly';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function HomePage() {
   const [showExplore, setShowExplore] = useState(false);
@@ -60,13 +61,18 @@ export default function HomePage() {
                   Empowering Businesses Digitally
                 </p>
               </div>
-              <div className={cn("mt-10 transition-opacity duration-500", showExplore ? "opacity-100" : "opacity-0")}>
+              <div className={cn("mt-10 transition-opacity duration-500 flex flex-col sm:flex-row gap-4", showExplore ? "opacity-100" : "opacity-0")}>
+                <Link href="#services">
+                  <Button size="lg" className="bg-black text-white hover:bg-gray-800 rounded-lg w-full sm:w-auto">
+                      Explore More
+                  </Button>
+                </Link>
                 {isClient && <PopupButton
                     url="https://calendly.com/your-username"
                     rootElement={document.getElementById("__next")!}
                     text="Schedule a call with us"
                     render={({ onClick, disabled, className }) => (
-                        <Button onClick={onClick} size="lg" className="bg-black text-white hover:bg-gray-800 rounded-lg">
+                        <Button onClick={onClick} size="lg" className="bg-black text-white hover:bg-gray-800 rounded-lg w-full sm:w-auto">
                             Schedule a call with us
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
