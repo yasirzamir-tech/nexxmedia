@@ -120,27 +120,6 @@ export default function AboutPage() {
                 </div>
             </div>
         </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-gray-900">
-              Ready to start your journey?
-            </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto mt-4 mb-8">
-              Let's connect and discuss how we can help you achieve your business objectives.
-            </p>
-            <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
-              >
-                Book a call with us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </section>
       </main>
     </div>
   );
