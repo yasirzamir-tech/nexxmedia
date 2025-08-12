@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, BarChart, Users, ShoppingCart, TrendingUp, Package, Percent, Users2 } from 'lucide-react';
+import { ArrowRight, BarChart, Users, ShoppingCart, TrendingUp, Package, Percent, Users2, ArrowUpRight, Repeat, UserCheck, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
@@ -22,13 +22,12 @@ const caseStudies = [
     aiHint: 'shopify storefront',
     title: 'Shopify Success Story 1',
     stats: [
-        { icon: <BarChart className="w-8 h-8 text-blue-500" />, value: "₹2.9 Cr+", label: "Gross Sales Generated" },
-        { icon: <Users className="w-8 h-8 text-green-500" />, value: "13.9%", label: "Returning Customers" },
-        { icon: <ShoppingCart className="w-8 h-8 text-purple-500" />, value: "₹4,173+", label: "Average Order Value" },
-        { icon: <Package className="w-8 h-8 text-orange-500" />, value: "+58%", label: "Orders Fulfilled" },
-        { icon: <TrendingUp className="w-8 h-8 text-red-500" />, value: "+73%", label: "Conversion Rate Improved" },
-        { icon: <Percent className="w-8 h-8 text-indigo-500" />, value: "25%", label: "Sales Grow in 1 Month" },
-        { icon: <Users2 className="w-8 h-8 text-pink-500" />, value: "52.7K+", label: "Visitors" },
+        { icon: <ShoppingBag className="w-8 h-8 text-blue-500" />, value: "₹1 Cr+", label: "Gross Sales Generated" },
+        { icon: <Repeat className="w-8 h-8 text-green-500" />, value: "40%", label: "Returning Customers" },
+        { icon: <ShoppingCart className="w-8 h-8 text-purple-500" />, value: "₹6,100+", label: "Average Order Value" },
+        { icon: <TrendingUp className="w-8 h-8 text-red-500" />, value: "4.6L", label: "Top Product Sales" },
+        { icon: <ArrowUpRight className="w-8 h-8 text-orange-500" />, value: "36%", label: "Growth in Draft Orders" },
+        { icon: <Users className="w-8 h-8 text-pink-500" />, value: "216K+", label: "Visitors" },
     ]
   },
   {
@@ -36,13 +35,12 @@ const caseStudies = [
     aiHint: 'shopify storefront dark',
     title: 'Shopify Success Story 2',
     stats: [
-        { icon: <BarChart className="w-8 h-8 text-blue-500" />, value: "₹1.5 Cr+", label: "Gross Sales Generated" },
-        { icon: <Users className="w-8 h-8 text-green-500" />, value: "18.2%", label: "Returning Customers" },
+        { icon: <ShoppingBag className="w-8 h-8 text-blue-500" />, value: "₹1.5 Cr+", label: "Gross Sales Generated" },
+        { icon: <Repeat className="w-8 h-8 text-green-500" />, value: "18.2%", label: "Returning Customers" },
         { icon: <ShoppingCart className="w-8 h-8 text-purple-500" />, value: "₹3,500+", label: "Average Order Value" },
-        { icon: <Package className="w-8 h-8 text-orange-500" />, value: "+65%", label: "Orders Fulfilled" },
         { icon: <TrendingUp className="w-8 h-8 text-red-500" />, value: "+50%", label: "Conversion Rate Improved" },
-        { icon: <Percent className="w-8 h-8 text-indigo-500" />, value: "20%", label: "Sales Grow in 1 Month" },
-        { icon: <Users2 className="w-8 h-8 text-pink-500" />, value: "45K+", label: "Visitors" },
+        { icon: <Package className="w-8 h-8 text-orange-500" />, value: "+65%", label: "Orders Fulfilled" },
+        { icon: <Users className="w-8 h-8 text-pink-500" />, value: "45K+", label: "Visitors" },
     ]
   },
   {
@@ -50,13 +48,12 @@ const caseStudies = [
     aiHint: 'shopify storefront fashion',
     title: 'Shopify Success Story 3',
     stats: [
-        { icon: <BarChart className="w-8 h-8 text-blue-500" />, value: "₹3.2 Cr+", label: "Gross Sales Generated" },
-        { icon: <Users className="w-8 h-8 text-green-500" />, value: "22.5%", label: "Returning Customers" },
+        { icon: <ShoppingBag className="w-8 h-8 text-blue-500" />, value: "₹3.2 Cr+", label: "Gross Sales Generated" },
+        { icon: <Repeat className="w-8 h-8 text-green-500" />, value: "22.5%", label: "Returning Customers" },
         { icon: <ShoppingCart className="w-8 h-8 text-purple-500" />, value: "₹5,200+", label: "Average Order Value" },
-        { icon: <Package className="w-8 h-8 text-orange-500" />, value: "+70%", label: "Orders Fulfilled" },
         { icon: <TrendingUp className="w-8 h-8 text-red-500" />, value: "+85%", label: "Conversion Rate Improved" },
-        { icon: <Percent className="w-8 h-8 text-indigo-500" />, value: "30%", label: "Sales Grow in 1 Month" },
-        { icon: <Users2 className="w-8 h-8 text-pink-500" />, value: "60K+", label: "Visitors" },
+        { icon: <Package className="w-8 h-8 text-orange-500" />, value: "+70%", label: "Orders Fulfilled" },
+        { icon: <Users className="w-8 h-8 text-pink-500" />, value: "60K+", label: "Visitors" },
     ]
   },
   {
@@ -64,20 +61,32 @@ const caseStudies = [
     aiHint: 'shopify storefront tech',
     title: 'Shopify Success Story 4',
     stats: [
-        { icon: <BarChart className="w-8 h-8 text-blue-500" />, value: "₹90 Lacs+", label: "Gross Sales Generated" },
-        { icon: <Users className="w-8 h-8 text-green-500" />, value: "15%", label: "Returning Customers" },
+        { icon: <ShoppingBag className="w-8 h-8 text-blue-500" />, value: "₹90 Lacs+", label: "Gross Sales Generated" },
+        { icon: <Repeat className="w-8 h-8 text-green-500" />, value: "15%", label: "Returning Customers" },
         { icon: <ShoppingCart className="w-8 h-8 text-purple-500" />, value: "₹2,800+", label: "Average Order Value" },
-        { icon: <Package className="w-8 h-8 text-orange-500" />, value: "+45%", label: "Orders Fulfilled" },
         { icon: <TrendingUp className="w-8 h-8 text-red-500" />, value: "+60%", label: "Conversion Rate Improved" },
-        { icon: <Percent className="w-8 h-8 text-indigo-500" />, value: "18%", label: "Sales Grow in 1 Month" },
-        { icon: <Users2 className="w-8 h-8 text-pink-500" />, value: "35K+", label: "Visitors" },
+        { icon: <Package className="w-8 h-8 text-orange-500" />, value: "+45%", label: "Orders Fulfilled" },
+        { icon: <Users className="w-8 h-8 text-pink-500" />, value: "35K+", label: "Visitors" },
     ]
   },
 ]
 
+const StatCard = ({ icon, value, label }: { icon: React.ReactNode, value: string, label: string }) => (
+    <div className="bg-gray-100 rounded-2xl p-4 flex items-center justify-between shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+      <div>
+        <p className="text-2xl font-bold text-gray-900">{value}</p>
+        <p className="text-sm text-gray-600">{label}</p>
+      </div>
+      <div className="p-2 bg-white rounded-lg shadow-inner">
+        {icon}
+      </div>
+    </div>
+  );
+  
+
 export default function PortfolioPage() {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
+    Autoplay({ delay: 5000, stopOnInteraction: true })
   )
 
   return (
@@ -101,7 +110,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Shopify Showcase Carousel */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <Carousel 
               plugins={[plugin.current]}
@@ -113,9 +122,8 @@ export default function PortfolioPage() {
                 {caseStudies.map((study, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
-                      <Card className="rounded-3xl overflow-hidden">
-                        <CardContent className="grid lg:grid-cols-2 items-center gap-8 p-0">
-                          <div className="relative w-full h-[500px] lg:h-full min-h-[400px]">
+                        <div className="grid lg:grid-cols-5 items-center gap-8 p-0">
+                          <div className="lg:col-span-3 relative w-full h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                              <Image
                                 src={study.image}
                                 alt={study.title}
@@ -124,37 +132,25 @@ export default function PortfolioPage() {
                                 data-ai-hint={study.aiHint}
                               />
                           </div>
-                          <div className="p-8 lg:p-12">
-                            <h3 className="text-3xl font-bold tracking-tighter text-gray-900 mb-8 text-center">{study.title}</h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md mx-auto">
-                              {study.stats.map((stat) => (
-                                <div key={stat.label} className="flex items-center gap-4 bg-gray-100 p-4 rounded-xl">
-                                  <div className="p-2 bg-white rounded-lg">
-                                    {stat.icon}
-                                  </div>
-                                  <div>
-                                    <p className="text-xl font-bold text-gray-900">{stat.value}</p>
-                                    <p className="text-sm text-gray-600">{stat.label}</p>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
+                          <div className="lg:col-span-2 space-y-4">
+                            {study.stats.map((stat) => (
+                                <StatCard key={stat.label} {...stat} />
+                            ))}
                           </div>
-                        </CardContent>
-                      </Card>
+                        </div>
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10" />
-              <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10" />
+              <CarouselPrevious className="absolute left-[-1.5rem] top-1/2 -translate-y-1/2 z-10" />
+              <CarouselNext className="absolute right-[-1.5rem] top-1/2 -translate-y-1/2 z-10" />
             </Carousel>
           </div>
         </section>
 
 
         {/* CTA Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-gray-900">
               Have a project in mind?
@@ -177,7 +173,3 @@ export default function PortfolioPage() {
     </div>
   );
 }
-
-    
-
-    
