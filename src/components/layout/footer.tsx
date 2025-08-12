@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-4">
           
           {/* About Column */}
-          <div className="space-y-4 md:col-span-1">
+          <div className="space-y-4 md:col-span-1 md:ml-4">
             <Link href="/" className="flex items-center space-x-2">
               <span className="font-black text-xl tracking-tighter">NEXX MEDIA</span>
             </Link>
