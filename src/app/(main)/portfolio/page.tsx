@@ -114,8 +114,8 @@ export default function PortfolioPage() {
                   <CarouselItem key={index}>
                     <div className="p-1">
                       <Card className="rounded-3xl overflow-hidden">
-                        <CardContent className="flex flex-col gap-8 p-0">
-                          <div className="relative w-full h-[500px]">
+                        <CardContent className="grid lg:grid-cols-2 items-center gap-8 p-0">
+                          <div className="relative w-full h-[500px] lg:h-full min-h-[400px]">
                              <Image
                                 src={study.image}
                                 alt={study.title}
@@ -126,14 +126,14 @@ export default function PortfolioPage() {
                           </div>
                           <div className="p-8 lg:p-12">
                             <h3 className="text-3xl font-bold tracking-tighter text-gray-900 mb-8 text-center">{study.title}</h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md mx-auto">
                               {study.stats.map((stat) => (
                                 <div key={stat.label} className="flex items-center gap-4 bg-gray-100 p-4 rounded-xl">
                                   <div className="p-2 bg-white rounded-lg">
                                     {stat.icon}
                                   </div>
                                   <div>
-                                    <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+                                    <p className="text-xl font-bold text-gray-900">{stat.value}</p>
                                     <p className="text-sm text-gray-600">{stat.label}</p>
                                   </div>
                                 </div>
@@ -177,5 +177,7 @@ export default function PortfolioPage() {
     </div>
   );
 }
+
+    
 
     
