@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Counter from '@/components/ui/counter';
 
 const values = [
     {
@@ -21,6 +22,12 @@ const values = [
         description: "We provide clear, honest, and regular communication. You'll always know what we're doing, why we're doing it, and the results we're achieving."
     }
 ];
+
+const stats = [
+    { value: 50, label: "Brands Scaled", suffix: "+" },
+    { value: 98, label: "Client Satisfaction", suffix: "%" },
+    { value: 200, label: "Campaigns Launched", suffix: "+" },
+]
 
 export default function AboutPage() {
   return (
@@ -88,6 +95,29 @@ export default function AboutPage() {
                 </div>
             </div>
         </section>
+
+        {/* By The Numbers Section */}
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-16">
+                    <p className="text-lg text-gray-600 mb-4 tracking-wider">Results that Speak</p>
+                    <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-gray-900">
+                        THE NEXX LEVEL
+                    </h2>
+                </div>
+                <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+                    {stats.map(stat => (
+                        <div key={stat.label} className="bg-gray-50 rounded-2xl p-8">
+                            <p className="text-6xl md:text-7xl font-black text-primary tracking-tighter">
+                                <Counter value={stat.value} suffix={stat.suffix} />
+                            </p>
+                            <p className="text-lg text-gray-600 mt-2 font-semibold">{stat.label}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
 
         {/* Built to Scale Section */}
         <section className="relative py-20 bg-black text-white">
