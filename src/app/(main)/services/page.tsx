@@ -1,10 +1,19 @@
+
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ApproachSection from '@/components/landing/approach-section';
-import ServicesGridSection from '@/components/landing/services-grid-section';
+import { Button } from '@/components/ui/button';
+import { PopupButton } from 'react-calendly';
+import { ArrowRight } from 'lucide-react';
 
 export default function ServicesPage() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <div className="bg-white">
       <main>
@@ -27,6 +36,33 @@ export default function ServicesPage() {
 
         <ApproachSection />
 
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-gray-900">
+              Ready to grow your business?
+            </h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto mt-4 mb-8">
+              Let's talk about how our tailored marketing solutions can help you achieve your goals.
+            </p>
+            {isClient && (
+              <PopupButton
+                url="https://calendly.com/your-username"
+                rootElement={document.getElementById('__next')!}
+                text="Schedule a call with us"
+                render={({ onClick }) => (
+                  <Button
+                    onClick={onClick}
+                    size="lg"
+                    className="bg-black text-white hover:bg-gray-800 rounded-lg"
+                  >
+                    Book a call with us
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                )}
+              />
+            )}
+          </div>
+        </section>
       </main>
     </div>
   );
