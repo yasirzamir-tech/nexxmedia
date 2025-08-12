@@ -90,13 +90,21 @@ export default {
             transform: 'translateY(0)',
             animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
           }
+        },
+        'tada': {
+          '0%': { transform: 'scale(1)' },
+          '10%, 20%': { transform: 'scale(0.9) rotate(-3deg)' },
+          '30%, 50%, 70%, 90%': { transform: 'scale(1.1) rotate(3deg)' },
+          '40%, 60%, 80%': { transform: 'scale(1.1) rotate(-3deg)' },
+          '100%': { transform: 'scale(1) rotate(0)' }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.6s ease-out forwards',
-        'bounce': 'bounce 1s infinite'
+        'bounce': 'bounce 1s infinite',
+        'tada': 'tada 1s ease-in-out',
       },
     },
   },

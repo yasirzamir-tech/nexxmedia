@@ -4,7 +4,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, ArrowRight, Phone } from "lucide-react"
+import { Menu, ArrowRight, Phone, Calendar } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -22,7 +22,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Skeleton } from "@/components/ui/skeleton"
 
 const navLinks = [
     { href: '/', label: 'Home' },
@@ -71,7 +70,9 @@ export default function Header() {
   const CalendlyContent = () => (
     <div className="h-[650px] overflow-hidden relative">
       {!isCalendlyLoaded && (
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-white">
+        <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-white space-y-4">
+            <Calendar className="w-12 h-12 text-primary animate-tada" />
+            <p className="text-lg font-medium text-gray-800">Gear up — growth mode is activating!</p>
             <div className="flex items-center justify-center space-x-2">
               <div className="w-3 h-3 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></div>
               <div className="w-3 h-3 bg-primary rounded-full animate-bounce [animation-delay:-0.15s]"></div>
