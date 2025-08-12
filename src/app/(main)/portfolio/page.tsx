@@ -114,8 +114,8 @@ export default function PortfolioPage() {
                   <CarouselItem key={index}>
                     <div className="p-1">
                       <Card className="rounded-3xl overflow-hidden">
-                        <CardContent className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 p-0">
-                          <div className="relative w-full h-[600px] lg:col-span-3">
+                        <CardContent className="flex flex-col gap-8 p-0">
+                          <div className="relative w-full h-[500px]">
                              <Image
                                 src={study.image}
                                 alt={study.title}
@@ -124,9 +124,9 @@ export default function PortfolioPage() {
                                 data-ai-hint={study.aiHint}
                               />
                           </div>
-                          <div className="lg:col-span-2 flex flex-col justify-center p-8 lg:p-12">
-                            <h3 className="text-3xl font-bold tracking-tighter text-gray-900 mb-8">{study.title}</h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                          <div className="p-8 lg:p-12">
+                            <h3 className="text-3xl font-bold tracking-tighter text-gray-900 mb-8 text-center">{study.title}</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
                               {study.stats.map((stat) => (
                                 <div key={stat.label} className="flex items-center gap-4 bg-gray-100 p-4 rounded-xl">
                                   <div className="p-2 bg-white rounded-lg">
@@ -177,3 +177,5 @@ export default function PortfolioPage() {
     </div>
   );
 }
+
+    
