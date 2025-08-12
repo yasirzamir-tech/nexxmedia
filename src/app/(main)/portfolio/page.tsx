@@ -18,7 +18,7 @@ import Autoplay from "embla-carousel-autoplay"
 
 const caseStudies = [
   {
-    image: 'https://placehold.co/600x800.png',
+    image: 'https://placehold.co/800x600.png',
     aiHint: 'shopify storefront',
     title: 'Shopify Success Story 1',
     stats: [
@@ -32,7 +32,7 @@ const caseStudies = [
     ]
   },
   {
-    image: 'https://placehold.co/600x800.png',
+    image: 'https://placehold.co/800x600.png',
     aiHint: 'shopify storefront dark',
     title: 'Shopify Success Story 2',
     stats: [
@@ -46,7 +46,7 @@ const caseStudies = [
     ]
   },
   {
-    image: 'https://placehold.co/600x800.png',
+    image: 'https://placehold.co/800x600.png',
     aiHint: 'shopify storefront fashion',
     title: 'Shopify Success Story 3',
     stats: [
@@ -60,7 +60,7 @@ const caseStudies = [
     ]
   },
   {
-    image: 'https://placehold.co/600x800.png',
+    image: 'https://placehold.co/800x600.png',
     aiHint: 'shopify storefront tech',
     title: 'Shopify Success Story 4',
     stats: [
@@ -115,7 +115,7 @@ export default function PortfolioPage() {
                     <div className="p-1">
                       <Card className="rounded-3xl overflow-hidden">
                         <CardContent className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 p-0">
-                          <div className="relative w-full h-[600px] lg:col-span-2">
+                          <div className="relative w-full h-[600px] lg:col-span-3">
                              <Image
                                 src={study.image}
                                 alt={study.title}
@@ -124,7 +124,7 @@ export default function PortfolioPage() {
                                 data-ai-hint={study.aiHint}
                               />
                           </div>
-                          <div className="lg:col-span-3 flex flex-col justify-center p-8 lg:p-12">
+                          <div className="lg:col-span-2 flex flex-col justify-center p-8 lg:p-12">
                             <h3 className="text-3xl font-bold tracking-tighter text-gray-900 mb-8">{study.title}</h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                               {study.stats.map((stat) => (
