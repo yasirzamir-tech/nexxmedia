@@ -62,7 +62,7 @@ export default function Header() {
               text="Book a Call"
               className="hidden lg:inline-flex"
               render={({ onClick, disabled, className }) => (
-                <Button onClick={onClick} className={cn(className, "bg-black text-white hover:bg-gray-800 rounded-lg")}>
+                <Button onClick={onClick} className={cn(className, "rounded-full")}>
                     Book a Call
                 </Button>
               )}
@@ -100,7 +100,7 @@ export default function Header() {
                       rootElement={document.getElementById("__next")!}
                       text="Book a Call"
                       render={({ onClick, disabled, className }) => (
-                        <Button onClick={onClick} className={cn(className, "bg-black text-white hover:bg-gray-800 rounded-lg")}>
+                        <Button onClick={onClick} className={cn(className, "rounded-full")}>
                             Book a Call
                         </Button>
                       )}
