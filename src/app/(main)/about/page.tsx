@@ -93,11 +93,11 @@ export default function AboutPage() {
         <section className="relative py-20 bg-black text-white">
             <div className="absolute inset-0 z-0 opacity-30">
                 <Image
-                    src="https://placehold.co/1800x600.png"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                     alt="Abstract background"
                     fill
                     className="object-cover"
-                    data-ai-hint="abstract purple wave"
+                    data-ai-hint="abstract growth ambition"
                 />
             </div>
             <div className="container mx-auto px-4 text-center relative z-10">
