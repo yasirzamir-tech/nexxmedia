@@ -11,6 +11,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
+import Link from 'next/link';
+import { Calendar } from 'lucide-react';
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
@@ -61,7 +63,7 @@ export default function ContactSection() {
                 CONTACT US
                 </h2>
                 <p className="text-lg text-gray-700 max-w-lg mt-4">
-                Have a question or need more information? Reach out to us using the form below.
+                Have a question or want to schedule a meeting? Reach out using the form below or book a time directly in our calendar.
                 </p>
             </div>
             <Form {...form}>
@@ -122,9 +124,17 @@ export default function ContactSection() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
-                  Send Message
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
+                    Send Message
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="w-full">
+                    <Link href="https://calendly.com/your-username" target="_blank">
+                      <Calendar className="mr-2 h-5 w-5" />
+                      Schedule a Meeting
+                    </Link>
+                  </Button>
+                </div>
               </form>
             </Form>
           </div>
