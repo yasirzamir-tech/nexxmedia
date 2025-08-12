@@ -11,6 +11,7 @@ import OurMissionSection from '@/components/landing/our-mission-section';
 import TestimonialsSection from '@/components/landing/testimonials-section';
 import WorkflowSection from '@/components/landing/workflow-section';
 import ServicesGridSection from '@/components/landing/services-grid-section';
+import TailoredMarketingSection from '@/components/landing/tailored-marketing-section';
 
 export default function HomePage() {
   const [showExplore, setShowExplore] = useState(false);
@@ -78,6 +79,7 @@ export default function HomePage() {
         </section>
         <TestimonialsSection />
         <WorkflowSection />
+        <TailoredMarketingSection />
         <ServicesGridSection />
       </main>
     </div>
