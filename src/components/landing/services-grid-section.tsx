@@ -27,12 +27,12 @@ const services = [
 
 const ServiceCard = ({ number, title, description }: { number: string; title: string; description: string }) => {
   return (
-    <div className="bg-gray-100 rounded-3xl p-8 transition-all duration-300 hover:bg-gray-200 hover:shadow-xl hover:-translate-y-2 flex flex-col justify-between min-h-[300px]">
+    <div className="bg-gray-100 rounded-3xl p-8 transition-all duration-300 hover:bg-gray-200 hover:shadow-xl hover:-translate-y-2 flex flex-col min-h-[300px]">
       <div className="w-16 h-1 bg-black -rotate-45 ml-auto" />
-      <div className="mt-auto">
+      <div className="flex-grow flex flex-col justify-end">
         <p className="text-sm font-semibold text-gray-600">{number}</p>
-        <h3 className="text-2xl font-bold tracking-tight text-black mt-2">{title}</h3>
-        <p className="text-gray-600 mt-2">{description}</p>
+        <h3 className="text-xl font-bold tracking-tight text-black mt-2">{title}</h3>
+        <p className="text-base text-gray-600 mt-2">{description}</p>
       </div>
     </div>
   );
