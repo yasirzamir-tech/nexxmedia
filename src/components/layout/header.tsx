@@ -22,28 +22,28 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { Skeleton } from "@/components/ui/skeleton"
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-]
-
-const CalendlyEmbed = () => (
-  <div className="h-[650px] overflow-hidden">
-    <iframe
-      src="https://calendly.com/nexxmedia-info/30min"
-      width="100%"
-      height="100%"
-      frameBorder="0"
-    ></iframe>
-  </div>
-)
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/services', label: 'Services' },
+    { href: '/portfolio', label: 'Portfolio' },
+];
 
 export default function Header() {
   const [isSheetOpen, setSheetOpen] = React.useState(false)
+  const [isCalendlyLoaded, setCalendlyLoaded] = React.useState(false);
+  const [shouldLoadCalendly, setShouldLoadCalendly] = React.useState(false);
   const pathname = usePathname()
+
+  React.useEffect(() => {
+    // Start preloading Calendly after a short delay to not block initial page load
+    const timer = setTimeout(() => {
+        setShouldLoadCalendly(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const NavLink = ({
     href,
@@ -67,6 +67,22 @@ export default function Header() {
       </Link>
     )
   }
+  
+  const CalendlyContent = () => (
+    <div className="h-[650px] overflow-hidden relative">
+      {!isCalendlyLoaded && <Skeleton className="absolute inset-0 w-full h-full" />}
+      {shouldLoadCalendly && (
+        <iframe
+            src="https://calendly.com/nexxmedia-info/30min"
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            className={cn("absolute inset-0 w-full h-full transition-opacity duration-500", isCalendlyLoaded ? "opacity-100" : "opacity-0")}
+            onLoad={() => setCalendlyLoaded(true)}
+        />
+      )}
+    </div>
+  );
 
   return (
     <header className="fixed top-0 z-50 w-full p-4">
@@ -95,7 +111,7 @@ export default function Header() {
               </Button>
             </DialogTrigger>
             <DialogContent className="p-0 max-w-4xl">
-              <CalendlyEmbed />
+              <CalendlyContent />
             </DialogContent>
           </Dialog>
 
@@ -144,7 +160,7 @@ export default function Header() {
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="p-0 max-w-4xl w-[90vw]">
-                       <CalendlyEmbed />
+                       <CalendlyContent />
                     </DialogContent>
                   </Dialog>
                 </nav>
