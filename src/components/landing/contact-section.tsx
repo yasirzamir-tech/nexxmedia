@@ -11,8 +11,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
-import Link from 'next/link';
 import { Calendar } from 'lucide-react';
+import { PopupButton } from 'react-calendly';
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
@@ -128,12 +128,18 @@ export default function ContactSection() {
                   <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
                     Send Message
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="w-full">
-                    <Link href="https://calendly.com/your-username" target="_blank">
-                      <Calendar className="mr-2 h-5 w-5" />
-                      Schedule a Meeting
-                    </Link>
-                  </Button>
+                  <PopupButton
+                    url="https://calendly.com/your-username"
+                    rootElement={typeof window !== 'undefined' ? document.getElementById("__next")! : null}
+                    text="Schedule a Meeting"
+                    className="w-full"
+                    render={({ onClick, disabled, className }) => (
+                        <Button type="button" onClick={onClick} size="lg" variant="outline" className={className}>
+                            <Calendar className="mr-2 h-5 w-5" />
+                            Schedule a Meeting
+                        </Button>
+                    )}
+                  />
                 </div>
               </form>
             </Form>

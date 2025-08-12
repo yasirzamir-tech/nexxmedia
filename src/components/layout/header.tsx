@@ -3,7 +3,8 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, ShoppingBag } from "lucide-react"
+import { Menu } from "lucide-react"
+import { PopupButton } from 'react-calendly';
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -50,12 +51,17 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center justify-end space-x-4 pl-4 pr-6 ml-auto">
-           <div className="relative">
-             <ShoppingBag className="h-6 w-6 text-gray-700"/>
-             <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-black text-white text-xs">
-               0
-             </span>
-           </div>
+           <PopupButton
+              url="https://calendly.com/your-username"
+              rootElement={typeof window !== 'undefined' ? document.getElementById("__next")! : null}
+              text="Book a Call"
+              className="hidden lg:inline-flex"
+              render={({ onClick, disabled, className }) => (
+                <Button onClick={onClick} className={cn(className, "bg-black text-white hover:bg-gray-800 rounded-lg")}>
+                    Book a Call
+                </Button>
+              )}
+            />
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="lg:hidden text-black hover:bg-black/10">
@@ -84,6 +90,16 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
+                   <PopupButton
+                      url="https://calendly.com/your-username"
+                      rootElement={typeof window !== 'undefined' ? document.getElementById("__next")! : null}
+                      text="Book a Call"
+                      render={({ onClick, disabled, className }) => (
+                        <Button onClick={onClick} className={cn(className, "bg-black text-white hover:bg-gray-800 rounded-lg")}>
+                            Book a Call
+                        </Button>
+                      )}
+                    />
                 </nav>
               </div>
             </SheetContent>
