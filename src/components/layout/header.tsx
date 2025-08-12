@@ -20,7 +20,12 @@ const navLinks = [
 
 export default function Header() {
   const [isSheetOpen, setSheetOpen] = React.useState(false)
+  const [isClient, setIsClient] = React.useState(false)
   const pathname = usePathname()
+
+  React.useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const NavLink = ({ href, label, className }: { href: string; label: string, className?: string }) => {
     return (
@@ -51,9 +56,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center justify-end space-x-4 pl-4 pr-6 ml-auto">
-           <PopupButton
+           {isClient && <PopupButton
               url="https://calendly.com/your-username"
-              rootElement={typeof window !== 'undefined' ? document.getElementById("__next")! : null}
+              rootElement={document.getElementById("__next")!}
               text="Book a Call"
               className="hidden lg:inline-flex"
               render={({ onClick, disabled, className }) => (
@@ -61,7 +66,7 @@ export default function Header() {
                     Book a Call
                 </Button>
               )}
-            />
+            />}
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="lg:hidden text-black hover:bg-black/10">
@@ -90,16 +95,16 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
-                   <PopupButton
+                   {isClient && <PopupButton
                       url="https://calendly.com/your-username"
-                      rootElement={typeof window !== 'undefined' ? document.getElementById("__next")! : null}
+                      rootElement={document.getElementById("__next")!}
                       text="Book a Call"
                       render={({ onClick, disabled, className }) => (
                         <Button onClick={onClick} className={cn(className, "bg-black text-white hover:bg-gray-800 rounded-lg")}>
                             Book a Call
                         </Button>
                       )}
-                    />
+                    />}
                 </nav>
               </div>
             </SheetContent>

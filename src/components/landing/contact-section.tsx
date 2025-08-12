@@ -1,7 +1,7 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -23,6 +23,12 @@ const formSchema = z.object({
 
 export default function ContactSection() {
     const { toast } = useToast()
+    const [isClient, setIsClient] = useState(false)
+
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -128,9 +134,9 @@ export default function ContactSection() {
                   <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
                     Send Message
                   </Button>
-                  <PopupButton
+                  {isClient && <PopupButton
                     url="https://calendly.com/your-username"
-                    rootElement={typeof window !== 'undefined' ? document.getElementById("__next")! : null}
+                    rootElement={document.getElementById("__next")!}
                     text="Schedule a Meeting"
                     className="w-full"
                     render={({ onClick, disabled, className }) => (
@@ -139,7 +145,7 @@ export default function ContactSection() {
                             Schedule a Meeting
                         </Button>
                     )}
-                  />
+                  />}
                 </div>
               </form>
             </Form>
