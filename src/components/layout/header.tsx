@@ -50,7 +50,7 @@ export default function Header() {
         </nav>
         <div className="flex items-center justify-end space-x-4 pl-4 pr-6 ml-auto">
           <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer" className="hidden lg:inline-flex">
-            <Button className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md">
+            <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md">
                 Book a call with us
                 <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -84,7 +84,7 @@ export default function Header() {
                     </Link>
                   ))}
                   <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
-                    <Button className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md w-full">
+                    <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md w-full">
                         Book a call with us
                         <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
