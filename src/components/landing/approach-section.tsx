@@ -9,8 +9,8 @@ const approachItems = [
     description: 'Driving measurable results through data-driven campaigns, enhancing online presence and visibility.',
   },
   {
-    title: 'PPC MANAGEMENT',
-    description: 'Drive instant traffic and conversions through targeted PPC campaigns optimized for maximum results.',
+    title: 'RETENTION MARKETING',
+    description: 'Building lasting customer relationships and loyalty.',
   },
   {
     title: 'SOCIAL MEDIA CAMPAIGNS',
