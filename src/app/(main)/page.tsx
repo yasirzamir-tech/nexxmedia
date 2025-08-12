@@ -62,7 +62,7 @@ export default function HomePage() {
                   </Button>
                 </Link>
                 <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-black text-white hover:bg-gray-800 rounded-lg w-full sm:w-auto">
+                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg w-full sm:w-auto">
                       Schedule a call with us
                       <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
