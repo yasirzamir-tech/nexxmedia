@@ -15,6 +15,7 @@ import TailoredMarketingSection from '@/components/landing/tailored-marketing-se
 import ContactSection from '@/components/landing/contact-section';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { CalendlyDialog } from '@/components/ui/calendly-dialog';
 
 export default function HomePage() {
   const [showExplore, setShowExplore] = useState(false);
@@ -61,12 +62,12 @@ export default function HomePage() {
                       Explore More
                   </Button>
                 </Link>
-                <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
+                <CalendlyDialog>
                   <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg w-full sm:w-auto">
                       Schedule a call with us
                       <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
-                </Link>
+                </CalendlyDialog>
               </div>
             </div>
           </div>

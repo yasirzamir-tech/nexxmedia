@@ -3,10 +3,8 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, BarChart, Users, ShoppingCart, TrendingUp, Package, Percent, Users2, ArrowUpRight, Repeat, UserCheck, ShoppingBag } from 'lucide-react';
-import Link from 'next/link';
+import { ArrowRight, ShoppingCart, TrendingUp, Package, Repeat, Users, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
@@ -15,6 +13,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
+import { CalendlyDialog } from '@/components/ui/calendly-dialog';
 
 const caseStudies = [
   {
@@ -26,7 +25,7 @@ const caseStudies = [
         { icon: <Repeat className="w-8 h-8 text-green-500" />, value: "40%", label: "Returning Customers" },
         { icon: <ShoppingCart className="w-8 h-8 text-purple-500" />, value: "₹6,100+", label: "Average Order Value" },
         { icon: <TrendingUp className="w-8 h-8 text-red-500" />, value: "4.6L", label: "Top Product Sales" },
-        { icon: <ArrowUpRight className="w-8 h-8 text-orange-500" />, value: "36%", label: "Growth in Draft Orders" },
+        { icon: <Package className="w-8 h-8 text-orange-500" />, value: "36%", label: "Growth in Draft Orders" },
         { icon: <Users className="w-8 h-8 text-pink-500" />, value: "216K+", label: "Visitors" },
     ]
   },
@@ -72,17 +71,16 @@ const caseStudies = [
 ]
 
 const StatCard = ({ icon, value, label }: { icon: React.ReactNode, value: string, label: string }) => (
-    <div className="bg-gray-100 rounded-2xl p-4 flex items-center justify-between shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-      <div>
-        <p className="text-2xl font-bold text-gray-900">{value}</p>
-        <p className="text-sm text-gray-600">{label}</p>
-      </div>
-      <div className="p-2 bg-white rounded-lg shadow-inner">
-        {icon}
-      </div>
+  <div className="bg-gray-100 rounded-2xl p-4 flex items-center justify-between shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+    <div>
+      <p className="text-2xl font-bold text-gray-900">{value}</p>
+      <p className="text-sm text-gray-600">{label}</p>
     </div>
-  );
-  
+    <div className="p-2 bg-white rounded-lg shadow-inner">
+      {icon}
+    </div>
+  </div>
+);
 
 export default function PortfolioPage() {
   const plugin = React.useRef(
@@ -112,7 +110,7 @@ export default function PortfolioPage() {
         {/* Shopify Showcase Carousel */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
-            <Carousel 
+            <Carousel
               plugins={[plugin.current]}
               className="w-full"
               onMouseEnter={plugin.current.stop}
@@ -158,7 +156,7 @@ export default function PortfolioPage() {
             <p className="text-lg text-gray-700 max-w-2xl mx-auto mt-4 mb-8">
                 Let's create something amazing together. We're ready to bring your vision to life.
             </p>
-            <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
+            <CalendlyDialog>
               <Button
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
@@ -166,7 +164,7 @@ export default function PortfolioPage() {
                 Let's Talk
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
+            </CalendlyDialog>
           </div>
         </section>
       </main>

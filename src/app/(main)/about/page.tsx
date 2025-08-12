@@ -4,9 +4,9 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
 import Counter from '@/components/ui/counter';
+import { CalendlyDialog } from '@/components/ui/calendly-dialog';
 
 const values = [
     {
@@ -138,7 +138,7 @@ export default function AboutPage() {
                     We thrive on challenges and turn every obstacle into a strategic opportunity. We partner with visionaries who see every setback as a setup for an even greater comeback. We see you.
                 </p>
                 <div className="mt-10">
-                    <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
+                    <CalendlyDialog>
                         <Button
                             size="lg"
                             className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
@@ -146,7 +146,7 @@ export default function AboutPage() {
                             Let's Talk Growth
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
-                    </Link>
+                    </CalendlyDialog>
                 </div>
             </div>
         </section>

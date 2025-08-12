@@ -12,8 +12,8 @@ import { Textarea } from '@/components/ui/textarea';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
 import { Calendar } from 'lucide-react';
-import Link from 'next/link';
 import { sendEmail } from '@/ai/flows/send-email-flow';
+import { CalendlyDialog } from '@/components/ui/calendly-dialog';
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
@@ -142,12 +142,12 @@ export default function ContactSection() {
                   <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
                     Send Message
                   </Button>
-                  <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <CalendlyDialog>
                     <Button type="button" size="lg" variant="outline" className="w-full hover:bg-primary hover:text-primary-foreground">
                         <Calendar className="mr-2 h-5 w-5" />
                         Schedule a Meeting
                     </Button>
-                  </Link>
+                  </CalendlyDialog>
                 </div>
               </form>
             </Form>

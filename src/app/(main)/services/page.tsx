@@ -5,7 +5,7 @@ import React from 'react';
 import ApproachSection from '@/components/landing/approach-section';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { CalendlyDialog } from '@/components/ui/calendly-dialog';
 
 export default function ServicesPage() {
 
@@ -39,7 +39,7 @@ export default function ServicesPage() {
             <p className="text-lg text-gray-700 max-w-2xl mx-auto mt-4 mb-8">
               Let's talk about how our tailored marketing solutions can help you achieve your goals.
             </p>
-            <Link href="https://calendly.com/nexxmedia-info/30min" target="_blank" rel="noopener noreferrer">
+            <CalendlyDialog>
               <Button
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
@@ -47,7 +47,7 @@ export default function ServicesPage() {
                 Book a call with us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
+            </CalendlyDialog>
           </div>
         </section>
       </main>
