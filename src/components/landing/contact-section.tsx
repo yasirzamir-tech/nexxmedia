@@ -13,6 +13,7 @@ import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
 import { Calendar } from 'lucide-react';
 import Link from 'next/link';
+import { sendEmail } from '@/ai/flows/send-email-flow';
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
@@ -34,13 +35,27 @@ export default function ContactSection() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "We've received your message and will get back to you shortly.",
-    })
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      await sendEmail({
+        from: values.email,
+        to: 'info@nexxmedia.in',
+        subject: `New message from ${values.fullName}: ${values.subject}`,
+        html: `<p>You have a new message from ${values.fullName} (${values.email}):</p><p>${values.message}</p>`,
+      });
+
+      toast({
+        title: "Message Sent!",
+        description: "We've received your message and will get back to you shortly.",
+      })
+      form.reset();
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem sending your message. Please try again later.",
+      })
+    }
   }
 
   return (
