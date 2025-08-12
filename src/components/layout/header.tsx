@@ -12,8 +12,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "#portfolio", label: "portfolio" },
-  { href: "#about", label: "About" },
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
 ]
 
