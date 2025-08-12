@@ -32,7 +32,7 @@ const workflowStages = [
     title: 'Monitoring & Optimisation',
     description: 'We continuously monitor performance, using data to refine and optimize for the best possible results.',
     icon: <LineChart className="h-8 w-8" />,
-    image: 'https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzU1MDI2Mjk1fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://placehold.co/600x600.png',
     aiHint: 'analytics dashboard'
   },
 ];
