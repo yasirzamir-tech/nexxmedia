@@ -53,7 +53,7 @@ export default function ServicesPage() {
                   <Button
                     onClick={onClick}
                     size="lg"
-                    className="bg-black text-white hover:bg-gray-800 rounded-lg"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg"
                   >
                     Book a call with us
                     <ArrowRight className="ml-2 h-4 w-4" />
