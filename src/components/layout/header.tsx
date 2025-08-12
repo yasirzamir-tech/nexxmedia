@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu } from "lucide-react"
+import { Menu, ArrowRight } from "lucide-react"
 import { PopupButton } from 'react-calendly';
 
 import { cn } from "@/lib/utils"
@@ -62,8 +62,9 @@ export default function Header() {
               text="Book a Call"
               className="hidden lg:inline-flex"
               render={({ onClick, disabled, className }) => (
-                <Button onClick={onClick} className={cn(className, "rounded-full")}>
+                <Button onClick={onClick} className={cn(className, "rounded-full shadow-[0_0_15px_hsl(var(--primary))]")}>
                     Book a Call
+                    <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               )}
             />}
@@ -100,8 +101,9 @@ export default function Header() {
                       rootElement={document.getElementById("__next")!}
                       text="Book a Call"
                       render={({ onClick, disabled, className }) => (
-                        <Button onClick={onClick} className={cn(className, "rounded-full")}>
+                        <Button onClick={onClick} className={cn(className, "rounded-full shadow-[0_0_15px_hsl(var(--primary))] w-full")}>
                             Book a Call
+                            <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       )}
                     />}
