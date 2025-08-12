@@ -5,8 +5,8 @@ import { Plus } from 'lucide-react';
 
 const approachItems = [
   {
-    title: 'SEO SERVICES',
-    description: 'Enhance your online presence and reach with our advanced SEO solutions tailored for growth and visibility.',
+    title: 'PERFORMANCE MARKETING',
+    description: 'Driving measurable results through data-driven campaigns, enhancing online presence and visibility.',
   },
   {
     title: 'PPC MANAGEMENT',
