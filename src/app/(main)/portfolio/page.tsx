@@ -31,6 +31,13 @@ const portfolioItems = [
         aiHint: "analytics dashboard graph"
     },
     {
+        title: "E-commerce Performance Boost",
+        description: "Generated over ₹1 Cr+ in gross sales, increased traffic by 32%, and achieved a 40% returning customer rate through a data-driven marketing strategy.",
+        category: "Marketing",
+        image: "https://storage.googleapis.com/stabl-in-prod/e15d8f6d-dd78-422c-8511-d1007b8b7891.png",
+        aiHint: "dashboard analytics"
+    },
+    {
         title: "Social Media Engagement",
         description: "Created and managed a viral social media campaign that grew the client's audience by over 200k followers.",
         category: "Social Media",
