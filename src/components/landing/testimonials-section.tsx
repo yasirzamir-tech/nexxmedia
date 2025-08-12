@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 const clients = [
-  { name: "Innovate Inc.", logo: "https://placehold.co/100x100.png", hint: "abstract logo" },
+  { name: "Escaro Royale", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ4g4B2sR1g3p2e2H2x2F7Y5C8K3g2M1O8w&s", hint: "gold logo" },
   { name: "Quantum Leap", logo: "https://placehold.co/100x100.png", hint: "tech logo" },
   { name: "Apex Solutions", logo: "https://placehold.co/100x100.png", hint: "mountain logo" },
   { name: "Stellar Co.", logo: "https://placehold.co/100x100.png", hint: "star logo" },
