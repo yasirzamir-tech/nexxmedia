@@ -34,7 +34,7 @@ const ServiceCard = ({ number, title, description }: { number: string; title: st
     const handleScroll = () => {
       if (itemRef.current) {
         const scrollY = window.scrollY;
-        setRotation(45 - scrollY * 0.1);
+        setRotation(45 - scrollY * 0.2);
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
