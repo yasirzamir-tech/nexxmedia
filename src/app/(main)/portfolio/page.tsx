@@ -17,7 +17,7 @@ import { CalendlyDialog } from '@/components/ui/calendly-dialog';
 
 const caseStudies = [
   {
-    image: 'https://placehold.co/800x600.png',
+    image: '/images/case-study-1.png',
     aiHint: 'shopify storefront',
     title: 'Shopify Success Story 1',
     stats: [
@@ -30,7 +30,7 @@ const caseStudies = [
     ]
   },
   {
-    image: 'https://placehold.co/800x600.png',
+    image: '/images/case-study-2.png',
     aiHint: 'shopify storefront dark',
     title: 'Shopify Success Story 2',
     stats: [
@@ -43,7 +43,7 @@ const caseStudies = [
     ]
   },
   {
-    image: 'https://placehold.co/800x600.png',
+    image: '/images/case-study-3.png',
     aiHint: 'shopify storefront fashion',
     title: 'Shopify Success Story 3',
     stats: [
@@ -56,7 +56,7 @@ const caseStudies = [
     ]
   },
   {
-    image: 'https://placehold.co/800x600.png',
+    image: '/images/case-study-4.png',
     aiHint: 'shopify storefront tech',
     title: 'Shopify Success Story 4',
     stats: [
