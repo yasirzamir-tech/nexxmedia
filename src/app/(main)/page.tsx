@@ -39,7 +39,7 @@ export default function HomePage() {
         <section className="relative h-screen flex items-center bg-gray-900 text-black">
           <div className="absolute inset-0 z-0">
             <Image
-              src="https://placehold.co/1800x1200.png"
+              src="/images/hero-background.png"
               alt="Luxury leather goods"
               data-ai-hint="leather handbag"
               fill
@@ -78,7 +78,7 @@ export default function HomePage() {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <Image
-              src="https://placehold.co/1200x400.png"
+              src="/images/office-workplace.png"
               alt="Modern office workplace"
               data-ai-hint="modern office"
               width={1200}

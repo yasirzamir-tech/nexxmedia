@@ -56,7 +56,7 @@ export default function AboutPage() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="relative w-full h-[500px] rounded-3xl overflow-hidden">
                         <Image
-                        src="https://placehold.co/600x800.png"
+                        src="/images/about-team.png"
                         alt="Team brainstorming"
                         fill
                         className="object-cover"
@@ -123,7 +123,7 @@ export default function AboutPage() {
         <section className="relative py-20 bg-black text-white">
             <div className="absolute inset-0 z-0 opacity-30">
                 <Image
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                    src="/images/abstract-background.png"
                     alt="Abstract background"
                     fill
                     className="object-cover"

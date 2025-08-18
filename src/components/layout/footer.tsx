@@ -4,6 +4,7 @@ import { Linkedin, Instagram, Facebook } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import Image from "next/image"
 
 const XLogo = () => (
     <svg viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" >
@@ -20,7 +21,7 @@ export default function Footer() {
           {/* About Column */}
           <div className="space-y-4 md:col-span-1 md:ml-4">
             <Link href="/" className="flex items-center space-x-2">
-              <span className="font-black text-xl tracking-tighter">NEXX MEDIA</span>
+              <Image src="/images/logo.png" alt="Nexx Media Logo" width={140} height={40} />
             </Link>
           </div>
 

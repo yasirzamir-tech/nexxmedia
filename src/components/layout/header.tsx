@@ -5,6 +5,7 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, ArrowRight, Phone } from "lucide-react"
+import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -56,9 +57,7 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center bg-gray-100/95 backdrop-blur-sm rounded-full shadow-lg border border-gray-200/50">
         <div className="mr-auto flex items-center pl-6">
           <Link href="/" className="flex items-center space-x-2 text-black">
-            <span className="font-black text-xl tracking-tighter">
-              NEXX MEDIA
-            </span>
+            <Image src="/images/logo.png" alt="Nexx Media Logo" width={140} height={40} />
           </Link>
         </div>
         <nav className="hidden items-center space-x-2 lg:flex">
@@ -95,9 +94,7 @@ export default function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link href="/" className="flex items-center space-x-2">
-                    <span className="font-black text-xl tracking-tighter">
-                      NEXX MEDIA
-                    </span>
+                     <Image src="/images/logo.png" alt="Nexx Media Logo" width={140} height={40} />
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4 py-6">

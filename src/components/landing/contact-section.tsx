@@ -64,7 +64,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="relative w-full h-[600px] rounded-3xl overflow-hidden hidden lg:block">
             <Image
-              src="https://placehold.co/600x800.png"
+              src="/images/contact-us.png"
               alt="Contact us"
               fill
               className="object-cover"

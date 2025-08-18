@@ -6,14 +6,14 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 const clients = [
-  { name: "Escaro Royale", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ4g4B2sR1g3p2e2H2x2F7Y5C8K3g2M1O8w&s", hint: "gold logo" },
-  { name: "Mille Dollari", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrl_8bA42cO3s3g_4Y-g_gJz7q3n9x6zYw&s", hint: "gold logo crown" },
-  { name: "Btruss Services", logo: "https://placehold.co/100x100.png", hint: "mountain logo" },
-  { name: "Ehsan Ali", logo: "https://placehold.co/100x100.png", hint: "star logo" },
-  { name: "Leder Warren", logo: "https://placehold.co/100x100.png", hint: "arrow logo" },
-  { name: "xyz", logo: "https://placehold.co/100x100.png", hint: "s logo" },
-  { name: "abc", logo: "https://placehold.co/100x100.png", hint: "flame logo" },
-  { name: "Yasir", logo: "https://placehold.co/100x100.png", hint: "peak logo" },
+  { name: "Escaro Royale", logo: "/images/client-escaro.png", hint: "gold logo" },
+  { name: "Mille Dollari", logo: "/images/client-mille.png", hint: "gold logo crown" },
+  { name: "Btruss Services", logo: "/images/client-btruss.png", hint: "mountain logo" },
+  { name: "Ehsan Ali", logo: "/images/client-ehsan.png", hint: "star logo" },
+  { name: "Leder Warren", logo: "/images/client-leder.png", hint: "arrow logo" },
+  { name: "xyz", logo: "/images/client-xyz.png", hint: "s logo" },
+  { name: "abc", logo: "/images/client-abc.png", hint: "flame logo" },
+  { name: "Yasir", logo: "/images/client-yasir.png", hint: "peak logo" },
 ];
 
 export default function TestimonialsSection() {
@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
                     src={client.logo}
                     alt={client.name}
                     fill
-                    className="object-cover"
+                    className="object-contain p-2"
                     data-ai-hint={client.hint}
                   />
                 </div>

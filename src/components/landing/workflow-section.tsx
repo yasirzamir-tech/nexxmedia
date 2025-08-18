@@ -11,28 +11,28 @@ const workflowStages = [
     title: 'Consultation',
     description: 'Understanding your business goals and target audience is the first step. We conduct in-depth consultations to align our strategies with your objectives.',
     icon: <Target className="h-8 w-8" />,
-    image: 'https://placehold.co/600x600.png',
+    image: '/images/workflow-consultation.png',
     aiHint: 'business consultation'
   },
   {
     title: 'Strategy Development',
     description: 'We craft a bespoke marketing strategy, outlining the channels, tactics, and KPIs for success.',
     icon: <DraftingCompass className="h-8 w-8" />,
-    image: 'https://placehold.co/600x600.png',
+    image: '/images/workflow-strategy.png',
     aiHint: 'strategy whiteboard'
   },
   {
     title: 'Implementation',
     description: 'Our expert team executes the strategy, launching campaigns and creating content with precision.',
     icon: <Check className="h-8 w-8" />,
-    image: 'https://placehold.co/600x600.png',
+    image: '/images/workflow-implementation.png',
     aiHint: 'team working'
   },
   {
     title: 'Monitoring & Optimisation',
     description: 'We continuously monitor performance, using data to refine and optimize for the best possible results.',
     icon: <LineChart className="h-8 w-8" />,
-    image: 'https://placehold.co/600x600.png',
+    image: '/images/workflow-monitoring.png',
     aiHint: 'analytics dashboard'
   },
 ];
@@ -146,5 +146,4 @@ export default function WorkflowSection() {
     </section>
   );
 }
-
     
