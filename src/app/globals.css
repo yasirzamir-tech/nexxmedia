@@ -176,3 +176,11 @@
 .facebook-hover:hover svg {
   color: white;
 }
+
+.twitter-hover:hover {
+  background-color: #000000;
+}
+
+.twitter-hover:hover svg {
+  color: white;
+}
