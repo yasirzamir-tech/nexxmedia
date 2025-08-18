@@ -12,18 +12,8 @@ export const metadata: Metadata = {
 const neueHaasGrotesk = localFont({
   src: [
     {
-      path: '../../public/fonts/neue-haas-grotesk-text-pro-regular.ttf',
+      path: '../../public/fonts/NHaasGroteskTXPro-Rg.ttf',
       weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/neue-haas-grotesk-text-pro-medium.ttf',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/neue-haas-grotesk-text-pro-bold.ttf',
-      weight: '700',
       style: 'normal',
     },
   ],
