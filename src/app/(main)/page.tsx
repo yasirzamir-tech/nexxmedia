@@ -78,9 +78,9 @@ export default function HomePage() {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <Image
-              src="/images/office-workplace.png"
-              alt="Modern office workplace"
-              data-ai-hint="modern office"
+              src="/images/Hero Banner 1.png"
+              alt="Marketing banner"
+              data-ai-hint="marketing banner"
               width={1200}
               height={400}
               className="w-full rounded-3xl"
