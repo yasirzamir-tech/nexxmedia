@@ -129,8 +129,6 @@ export default function PortfolioPage() {
                                 fill
                                 className="object-cover"
                                 data-ai-hint={study.aiHint}
-                                width={600}
-                                height={500}
                               />
                           </div>
                           <div className="lg:col-span-2 space-y-4">
