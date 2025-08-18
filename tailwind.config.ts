@@ -97,7 +97,12 @@ export default {
           '30%, 50%, 70%, 90%': { transform: 'scale(1.1) rotate(3deg)' },
           '40%, 60%, 80%': { transform: 'scale(1.1) rotate(-3deg)' },
           '100%': { transform: 'scale(1) rotate(0)' }
-        }
+        },
+        'shine': {
+          '100%': {
+            transform: 'translateX(100%)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -105,6 +110,7 @@ export default {
         'fade-in': 'fade-in 0.6s ease-out forwards',
         'bounce': 'bounce 1s infinite',
         'tada': 'tada 1s ease-in-out',
+        'shine': 'shine 1.5s ease-in-out',
       },
     },
   },

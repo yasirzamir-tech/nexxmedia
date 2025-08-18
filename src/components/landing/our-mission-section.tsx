@@ -3,6 +3,7 @@
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 
 export default function OurMissionSection() {
@@ -53,11 +54,15 @@ export default function OurMissionSection() {
           </div>
           <div className="bg-black text-white rounded-3xl p-12 md:p-20 flex items-center justify-center md:col-span-1">
             <Button
+              asChild
               variant="outline"
               size="lg"
-              className="bg-white text-black border-transparent hover:bg-primary hover:text-primary-foreground rounded-lg"
+              className="group relative bg-white text-black border-transparent hover:bg-primary hover:text-primary-foreground rounded-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105"
             >
-              Learn More
+              <Link href="/about">
+                <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out animate-shine" />
+                <span className="relative z-10 transition-transform duration-300 group-hover:-translate-y-1">Learn More</span>
+              </Link>
             </Button>
           </div>
         </div>
