@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ShoppingCart, TrendingUp, Package, Repeat, Users, ShoppingBag } from 'lucide-react';
+import { ArrowRight, ShoppingCart, TrendingUp, Package, Repeat, Users, ShoppingBag, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import {
   Carousel,
@@ -71,15 +71,16 @@ const caseStudies = [
 ]
 
 const StatCard = ({ icon, value, label }: { icon: React.ReactNode, value: string, label: string }) => (
-  <div className="bg-gray-100 rounded-2xl p-4 flex items-center justify-between shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-    <div>
-      <p className="text-2xl font-bold text-gray-900">{value}</p>
-      <p className="text-sm text-gray-600">{label}</p>
+    <div className="group bg-gray-100 rounded-2xl p-4 flex items-center justify-between shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 relative overflow-hidden">
+        <div>
+            <p className="text-2xl font-bold text-gray-900">{value}</p>
+            <p className="text-sm text-gray-600">{label}</p>
+        </div>
+        <div className="p-2 bg-white rounded-lg shadow-inner z-10">
+            {icon}
+        </div>
+        <ArrowUpRight className="absolute -right-4 -bottom-4 h-20 w-20 text-primary/20 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-[-15deg] group-hover:-right-2 group-hover:-bottom-2" />
     </div>
-    <div className="p-2 bg-white rounded-lg shadow-inner">
-      {icon}
-    </div>
-  </div>
 );
 
 export default function PortfolioPage() {
