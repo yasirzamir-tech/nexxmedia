@@ -184,3 +184,11 @@
 .twitter-hover:hover svg {
   color: white;
 }
+
+.linkedin-hover:hover {
+  background-color: #0077B5;
+}
+
+.linkedin-hover:hover svg {
+  color: white;
+}

@@ -40,17 +40,17 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-2">
-              <Button variant="ghost" size="icon" asChild>
+              <Button variant="ghost" size="icon" asChild className="linkedin-hover">
                 <a href="https://www.linkedin.com/company/nexxmedia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
               </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a href="https://x.com/nexxmedia_in" target="_blank" rel="noopener noreferrer" aria-label="X" className="twitter-hover"><XLogo /></a>
+              <Button variant="ghost" size="icon" asChild className="twitter-hover">
+                <a href="https://x.com/nexxmedia_in" target="_blank" rel="noopener noreferrer" aria-label="X"><XLogo /></a>
               </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a href="https://www.instagram.com/nexx.media/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="instagram-gradient-hover"><Instagram className="h-5 w-5" /></a>
+              <Button variant="ghost" size="icon" asChild className="instagram-gradient-hover">
+                <a href="https://www.instagram.com/nexx.media/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram className="h-5 w-5" /></a>
               </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="facebook-hover"><Facebook className="h-5 w-5" /></a>
+              <Button variant="ghost" size="icon" asChild className="facebook-hover">
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook className="h-5 w-5" /></a>
               </Button>
             </div>
           </div>
