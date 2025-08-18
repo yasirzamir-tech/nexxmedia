@@ -71,7 +71,7 @@ export default function Header() {
               <span className="group-hover:-translate-x-2 transition-transform duration-300">
                 Book a call with us
               </span>
-              <Phone className="absolute right-[1rem] translate-x-12 group-hover:translate-x-0 transition-transform duration-300 h-4 w-4" />
+              <Phone className="absolute right-[1rem] translate-x-12 group-hover:translate-x-0 transition-transform duration-300 h-4 w-4 text-black" />
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-8 transition-transform duration-300" />
             </Button>
           </CalendlyDialog>
@@ -113,7 +113,7 @@ export default function Header() {
                       <span className="group-hover:-translate-x-2 transition-transform duration-300">
                         Book a call with us
                       </span>
-                      <Phone className="absolute right-[1rem] translate-x-12 group-hover:translate-x-0 transition-transform duration-300 h-4 w-4" />
+                      <Phone className="absolute right-[1rem] translate-x-12 group-hover:translate-x-0 transition-transform duration-300 h-4 w-4 text-black" />
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-8 transition-transform duration-300" />
                     </Button>
                   </CalendlyDialog>
