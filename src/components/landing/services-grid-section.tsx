@@ -41,15 +41,15 @@ const ServiceCard = ({ number, title, description }: { number: string; title: st
   }, []);
 
   return (
-    <div ref={itemRef} className="group bg-gray-100 rounded-3xl p-8 transition-all duration-300 hover:bg-[#05673e] hover:shadow-xl hover:-translate-y-2 flex flex-col min-h-[300px]">
+    <div ref={itemRef} className="group bg-gray-100 rounded-3xl p-8 transition-all duration-300 hover:bg-primary hover:shadow-xl hover:-translate-y-2 flex flex-col min-h-[300px]">
       <div 
-        className="w-16 h-1 bg-black group-hover:bg-white ml-auto mt-2 transition-colors duration-300 ease-linear"
+        className="w-16 h-1 bg-black group-hover:bg-primary-foreground ml-auto mt-2 transition-colors duration-300 ease-linear"
         style={{ transform: `rotate(${rotation}deg)` }}
       />
       <div className="flex-grow flex flex-col justify-end">
-        <p className="text-sm font-semibold text-gray-600 group-hover:text-gray-200">{number}</p>
-        <h3 className="text-xl font-bold tracking-tight text-black group-hover:text-white mt-2">{title}</h3>
-        <p className="text-base text-gray-600 group-hover:text-gray-200 mt-2">{description}</p>
+        <p className="text-sm font-semibold text-gray-600 group-hover:text-primary-foreground/80">{number}</p>
+        <h3 className="text-xl font-bold tracking-tight text-black group-hover:text-primary-foreground mt-2">{title}</h3>
+        <p className="text-base text-gray-600 group-hover:text-primary-foreground/80 mt-2">{description}</p>
       </div>
     </div>
   );
