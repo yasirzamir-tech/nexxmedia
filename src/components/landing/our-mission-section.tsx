@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -54,7 +55,7 @@ export default function OurMissionSection() {
             <Button
               variant="outline"
               size="lg"
-              className="bg-white text-black border-transparent hover:bg-gray-200 rounded-lg"
+              className="bg-white text-black border-transparent hover:bg-primary hover:text-primary-foreground rounded-lg"
             >
               Learn More
             </Button>
