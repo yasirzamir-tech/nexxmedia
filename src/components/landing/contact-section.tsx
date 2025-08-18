@@ -18,7 +18,7 @@ import { CalendlyDialog } from '@/components/ui/calendly-dialog';
 const formSchema = z.object({
   fullName: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
-  subject: z.string().min(5, { message: 'Subject must be at least 5 characters.' }),
+  mobileNumber: z.string().min(10, { message: 'Mobile number must be at least 10 digits.' }),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
@@ -30,7 +30,7 @@ export default function ContactSection() {
     defaultValues: {
       fullName: '',
       email: '',
-      subject: '',
+      mobileNumber: '',
       message: '',
     },
   });
@@ -40,8 +40,8 @@ export default function ContactSection() {
       await sendEmail({
         from: values.email,
         to: 'info@nexxmedia.in',
-        subject: `New message from ${values.fullName}: ${values.subject}`,
-        html: `<p>You have a new message from ${values.fullName} (${values.email}):</p><p>${values.message}</p>`,
+        subject: `New message from ${values.fullName}`,
+        html: `<p>You have a new message from ${values.fullName} (${values.email}):</p><p><b>Mobile:</b> ${values.mobileNumber}</p><p><b>Message:</b></p><p>${values.message}</p>`,
       });
 
       toast({
@@ -111,12 +111,12 @@ export default function ContactSection() {
                 />
                  <FormField
                   control={form.control}
-                  name="subject"
+                  name="mobileNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Subject</FormLabel>
+                      <FormLabel>Mobile Number</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input type="tel" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
