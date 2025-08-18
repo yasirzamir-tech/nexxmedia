@@ -168,3 +168,11 @@
 .instagram-gradient-hover:hover svg {
   color: white;
 }
+
+.facebook-hover:hover {
+  background-color: #0081FB;
+}
+
+.facebook-hover:hover svg {
+  color: white;
+}

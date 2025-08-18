@@ -44,7 +44,7 @@ export default function Footer() {
                 <a href="https://www.instagram.com/nexx.media/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="instagram-gradient-hover"><Instagram className="h-5 w-5" /></a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook className="h-5 w-5" /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="facebook-hover"><Facebook className="h-5 w-5" /></a>
               </Button>
             </div>
           </div>
