@@ -13,8 +13,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71% 4%;
 
-    --primary: 120 100% 70%; /* Neon Green */
-    --primary-foreground: 0 0% 0%;
+    --primary: 147 100% 39%; /* #00c85b */
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 16% 90%;
     --secondary-foreground: 224 71% 4%;
@@ -50,8 +50,8 @@
     --popover: 222 84% 5%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 120 100% 70%; /* Neon Green */
-    --primary-foreground: 0 0% 0%;
+    --primary: 147 100% 39%; /* #00c85b */
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
