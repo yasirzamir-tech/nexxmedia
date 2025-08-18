@@ -39,9 +39,9 @@ export default function HomePage() {
         <section className="relative h-screen flex items-center bg-gray-900 text-black">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/hero-background.png"
-              alt="Luxury leather goods"
-              data-ai-hint="leather handbag"
+              src="/images/Hero Banner 1.png"
+              alt="Digital marketing agency hero banner"
+              data-ai-hint="digital marketing"
               fill
               className="object-cover"
             />
