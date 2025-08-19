@@ -64,7 +64,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="relative w-full h-[600px] rounded-3xl overflow-hidden hidden lg:block">
             <Image
-              src="/images/contact-us.png"
+              src="/images/contact_us_new.png"
               alt="Contact us"
               fill
               className="object-cover"

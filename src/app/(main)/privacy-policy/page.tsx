@@ -1,7 +1,15 @@
 
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 
 export default function PrivacyPolicyPage() {
+  const [lastUpdated, setLastUpdated] = useState('');
+
+  useEffect(() => {
+    setLastUpdated(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
+  }, []);
+
   return (
     <div className="bg-white py-20">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -9,7 +17,7 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </h1>
         <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-          <p className="text-sm text-center text-gray-500 mb-12">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          <p className="text-sm text-center text-gray-500 mb-12">Last updated: {lastUpdated}</p>
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
