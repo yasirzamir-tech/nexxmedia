@@ -11,7 +11,7 @@ const workflowStages = [
     title: 'Consultation',
     description: 'Understanding your business goals and target audience is the first step. We conduct in-depth consultations to align our strategies with your objectives.',
     icon: <Target className="h-8 w-8" />,
-    image: '/images/workflow-consultation.png',
+    image: '/images/Consultation.png',
     aiHint: 'business consultation'
   },
   {
