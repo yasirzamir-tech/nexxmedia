@@ -87,9 +87,9 @@ export default function AboutPage() {
                 </div>
                 <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {values.map(value => (
-                        <div key={value.title} className="bg-white rounded-2xl p-8 text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <h3 className="text-2xl font-bold tracking-tight text-gray-900 mb-4">{value.title}</h3>
-                            <p className="text-gray-700 leading-relaxed">{value.description}</p>
+                        <div key={value.title} className="group bg-white rounded-2xl p-8 text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:bg-primary">
+                            <h3 className="text-2xl font-bold tracking-tight text-gray-900 mb-4 group-hover:text-primary-foreground">{value.title}</h3>
+                            <p className="text-gray-700 leading-relaxed group-hover:text-primary-foreground/90">{value.description}</p>
                         </div>
                     ))}
                 </div>
