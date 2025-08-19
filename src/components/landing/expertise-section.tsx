@@ -13,11 +13,11 @@ export default function ExpertiseSection() {
           OUR EXPERTISE
         </h2>
         <div className="mt-12">
-            <Image
+            <img
                 src="/images/Our Expertise 1a.png"
                 alt="Our Expertise"
-                width={1200}
-                height={600}
+                width="1200"
+                height="600"
                 className="w-full rounded-3xl"
                 data-ai-hint="team working on laptops"
             />
