@@ -14,7 +14,7 @@ const workImages = [
     aiHint: 'dashboard analytics',
   },
   {
-    src: 'https://placehold.co/1200x800.png',
+    src: 'https://placehold.co/800x1200.png',
     alt: 'Dashboard screenshot 2',
     aiHint: 'dashboard chart',
   },
@@ -29,7 +29,7 @@ const workImages = [
     aiHint: 'dashboard metrics',
   },
   {
-    src: 'https://placehold.co/1200x800.png',
+    src: 'https://placehold.co/800x1200.png',
     alt: 'Dashboard screenshot 5',
     aiHint: 'dashboard report',
   },
@@ -64,14 +64,15 @@ export default function OurWorksPage() {
         {/* Image Grid Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
               {workImages.map((image, index) => (
-                <div key={index} className="group relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+                <div key={index} className="group relative break-inside-avoid rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
                   <Image
                     src={image.src}
                     alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={image.aiHint}
                   />
                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
