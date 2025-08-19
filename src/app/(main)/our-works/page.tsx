@@ -23,6 +23,11 @@ const workImages = [
     alt: 'Dashboard screenshot 3',
     aiHint: 'dashboard graph',
   },
+    {
+    src: 'https://placehold.co/800x1200.png',
+    alt: 'Mobile App Concept',
+    aiHint: 'mobile app',
+    },
   {
     src: 'https://placehold.co/1200x800.png',
     alt: 'Dashboard screenshot 4',
@@ -33,11 +38,21 @@ const workImages = [
     alt: 'Dashboard screenshot 5',
     aiHint: 'dashboard report',
   },
+    {
+    src: 'https://placehold.co/1200x800.png',
+    alt: 'E-commerce Platform',
+    aiHint: 'ecommerce website',
+    },
   {
     src: 'https://placehold.co/1200x800.png',
     alt: 'Dashboard screenshot 6',
     aiHint: 'dashboard interface',
   },
+    {
+    src: 'https://placehold.co/800x1200.png',
+    alt: 'Creative Branding',
+    aiHint: 'branding design',
+    },
 ];
 
 export default function OurWorksPage() {
@@ -55,7 +70,7 @@ export default function OurWorksPage() {
                 OUR WORKS
               </h1>
               <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-                Explore a collection of our successful projects and client collaborations.
+                Explore a collection of our successful projects and client collaborations. We take pride in delivering digital solutions that drive growth and create impact.
               </p>
             </div>
           </div>
@@ -92,7 +107,7 @@ export default function OurWorksPage() {
               Ready to start your project?
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto mt-4 mb-8">
-              Let's discuss how we can bring your vision to life.
+              We've helped businesses of all sizes achieve their digital goals. Now, let's discuss how we can bring your unique vision to life and build something incredible together.
             </p>
             <CalendlyDialog>
               <Button
