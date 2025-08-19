@@ -56,7 +56,7 @@ export default function AboutPage() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="relative w-full h-[500px] rounded-3xl overflow-hidden">
                         <Image
-                        src="/images/about-team.png"
+                        src="/images/hero_banner_1.png"
                         alt="Team brainstorming"
                         fill
                         className="object-cover"
@@ -122,13 +122,13 @@ export default function AboutPage() {
         {/* Built to Scale Section */}
         <section className="relative py-20 bg-black text-white">
             <div className="absolute inset-0 z-0 opacity-30">
-                <Image
+                {/*<Image
                     src="/images/abstract-background.png"
                     alt="Abstract background"
                     fill
                     className="object-cover"
                     data-ai-hint="abstract growth ambition"
-                />
+                />*/}
             </div>
             <div className="container mx-auto px-4 text-center relative z-10">
                 <h2 className="text-5xl md:text-7xl font-black tracking-tighter">

@@ -1,10 +1,19 @@
 
+'use client';
+
 import Link from "next/link"
 import { Linkedin, Instagram, Facebook } from "lucide-react"
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { useToast } from '@/hooks/use-toast';
+import { sendEmail } from '@/ai/flows/send-email-flow';
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+
 
 const XLogo = () => (
     <svg viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" >
@@ -12,7 +21,44 @@ const XLogo = () => (
     </svg>
 )
 
+const newsletterFormSchema = z.object({
+  email: z.string().email({ message: 'Please enter a valid email address.' }),
+});
+
 export default function Footer() {
+  const { toast } = useToast();
+
+  const form = useForm<z.infer<typeof newsletterFormSchema>>({
+    resolver: zodResolver(newsletterFormSchema),
+    defaultValues: {
+      email: '',
+    },
+  });
+
+  async function onNewsletterSubmit(values: z.infer<typeof newsletterFormSchema>) {
+    try {
+      await sendEmail({
+        from: values.email,
+        to: 'info@nexxmedia.in',
+        subject: `New Newsletter Subscription`,
+        html: `<p>New subscription from ${values.email}</p>`,
+      });
+
+      toast({
+        title: "Subscribed!",
+        description: "Thanks for subscribing to our newsletter.",
+      })
+      form.reset();
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your subscription. Please try again.",
+      })
+    }
+  }
+
+
   return (
     <footer className="border-t bg-gray-50">
       <div className="container py-16">
@@ -60,10 +106,33 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Newsletter</h3>
             <p className="text-sm text-muted-foreground mb-2">Stay updated with our latest news.</p>
-            <form className="flex gap-2">
-              <Input type="email" placeholder="Your Email" className="flex-1"/>
-              <Button type="submit">Subscribe</Button>
-            </form>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onNewsletterSubmit)} className="flex flex-col gap-2">
+                <div className="flex gap-2">
+                    <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem className="flex-1">
+                        <FormControl>
+                            <Input type="email" placeholder="Your Email" {...field} />
+                        </FormControl>
+                        </FormItem>
+                    )}
+                    />
+                    <Button type="submit">Subscribe</Button>
+                </div>
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={() => (
+                    <FormItem>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </form>
+            </Form>
           </div>
 
         </div>
