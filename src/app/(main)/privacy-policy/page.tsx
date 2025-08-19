@@ -7,6 +7,7 @@ export default function PrivacyPolicyPage() {
   const [lastUpdated, setLastUpdated] = useState('');
 
   useEffect(() => {
+    // This code now runs only on the client, after the component has mounted.
     setLastUpdated(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
   }, []);
 
@@ -17,7 +18,9 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </h1>
         <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-          <p className="text-sm text-center text-gray-500 mb-12">Last updated: {lastUpdated}</p>
+          {lastUpdated && (
+            <p className="text-sm text-center text-gray-500 mb-12">Last updated: {lastUpdated}</p>
+          )}
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
