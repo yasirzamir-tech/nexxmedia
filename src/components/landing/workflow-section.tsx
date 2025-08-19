@@ -117,11 +117,10 @@ export default function WorkflowSection() {
                 isTransitioning ? 'opacity-0' : 'opacity-100'
               )}
             >
-              <Image
+              <img
                 src={activeStage.image}
                 alt={activeStage.title}
-                fill
-                className="object-cover"
+                className="w-full h-full object-cover"
                 data-ai-hint={activeStage.aiHint}
               />
             </div>
