@@ -2,7 +2,6 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { DraftingCompass, LineChart, Target, Check } from 'lucide-react';
 
@@ -11,28 +10,28 @@ const workflowStages = [
     title: 'Consultation',
     description: 'Understanding your business goals and target audience is the first step. We conduct in-depth consultations to align our strategies with your objectives.',
     icon: <Target className="h-8 w-8" />,
-    image: '/images/Consultation.png',
+    image: '/images/Consulation.png',
     aiHint: 'business consultation'
   },
   {
     title: 'Strategy Development',
     description: 'We craft a bespoke marketing strategy, outlining the channels, tactics, and KPIs for success.',
     icon: <DraftingCompass className="h-8 w-8" />,
-    image: '/images/workflow-strategy.png',
+    image: '/images/Strategy Development.png',
     aiHint: 'strategy whiteboard'
   },
   {
     title: 'Implementation',
     description: 'Our expert team executes the strategy, launching campaigns and creating content with precision.',
     icon: <Check className="h-8 w-8" />,
-    image: '/images/workflow-implementation.png',
+    image: '/images/Implementation.png',
     aiHint: 'team working'
   },
   {
     title: 'Monitoring & Optimisation',
     description: 'We continuously monitor performance, using data to refine and optimize for the best possible results.',
     icon: <LineChart className="h-8 w-8" />,
-    image: '/images/workflow-monitoring.png',
+    image: '/images/Monitoring_final.png',
     aiHint: 'analytics dashboard'
   },
 ];
@@ -44,16 +43,16 @@ export default function WorkflowSection() {
   const handleSetActiveIndex = useCallback((index: number) => {
     if (index === activeIndex) return;
     setIsTransitioning(true);
+    setActiveIndex(index);
     setTimeout(() => {
-      setActiveIndex(index);
       setIsTransitioning(false);
-    }, 300); // Corresponds with transition duration
+    }, 300);
   }, [activeIndex]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleSetActiveIndex((activeIndex + 1) % workflowStages.length);
-    }, 4000);
+    }, 3000); // Changed interval to 3s
 
     return () => clearInterval(interval);
   }, [activeIndex, handleSetActiveIndex]);
