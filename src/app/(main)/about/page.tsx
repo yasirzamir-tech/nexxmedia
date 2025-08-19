@@ -132,7 +132,7 @@ export default function AboutPage() {
             </div>
             <div className="container mx-auto px-4 text-center relative z-10">
                 <h2 className="text-5xl md:text-7xl font-black tracking-tighter">
-                    Built to Scale. <span className="text-accent">Are You?</span>
+                    Built to Scale. <span className="text-primary">Are You?</span>
                 </h2>
                 <p className="text-lg text-gray-300 max-w-3xl mx-auto mt-6">
                     We thrive on challenges and turn every obstacle into a strategic opportunity. We partner with visionaries who see every setback as a setup for an even greater comeback. We see you.
