@@ -78,7 +78,7 @@ export default function HomePage() {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <Image
-              src="/images/Our Expertise 1a.png"
+              src="/images/Our%20Expertise%201a.png"
               alt="Our Expertise"
               data-ai-hint="team working"
               width={1200}
